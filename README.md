@@ -19,6 +19,37 @@ Flight delay have a significant effect on the productivity of businesses and the
   <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
 </p>
 
-Given how integral business travel is to business success and the overall economy's GDP and how flight delays have a significant negative affect on both, predicting flight so that businesses travel can be scheduled when the probability of a delayed flight is low, will enable businesses to minimize the lost productivity due to flight delays and minimize lost GDP output due to flight delays.
+Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative affect on both, predicting future flight delays to enable businesses to schedule business travel when the probability of flight delay is low, will enable businesses to minimize the lost productivity and minimize the lost GDP output due to flight delays.
+
+## Project Goal
+
+The goal of this project is to develop a machine learning model using linear regresssion to predict future flight delays and estimate the time amount of these delays.
+
+## Model Source Data
+
+## 
+
+### References
+
+[[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*
 
 
+[[2]](https://hbr.org/2017/04/a-face-to-face-request-is-34-times-more-successful-than-an-email) A Face-to-Face Request Is 34 Times More Successful Than an Email, Harvard Business Review, *Vanessa K. Bohns, April 11, 2017*
+
+
+[[3]](https://www.statista.com/statistics/268750/global-gross-domestic-product-gdp/) Global gross domestic product (GDP) at current prices from 2009 to 2021 *www.statista.com, H. Plecher, Jun 3, 2020
+
+
+[[4]](https://growthlab.cid.harvard.edu/academic-research/business-travel)
+
+
+[[5]](https://www.investopedia.com/ask/answers/041315/how-much-revenue-airline-industry-comes-business-travelers-compared-leisure-travelers.asp)
+
+
+[[6]](https://www.airlines.org/data/annual-u-s-impact-of-flight-delays-nextor-report/)
+
+
+[[7]](https://www.airlines.org/dataset/per-minute-cost-of-delays-to-u-s-airlines/#)
+
+
+[[8]](https://www.transtats.bts.gov/HomeDrillChart.asp)
