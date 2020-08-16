@@ -19,8 +19,10 @@ Because business air travel is an essential part managing a business successfull
 <p align="center">
   <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
   <br/>
-  [8]
 </p>
+
+[[8]](#references)
+
 
 Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative affect on both, having the ability to predict future flight delays will enable businesses to schedule travel when the probability of flight delay is low. This will enable businesses to minimize its lost productivity due to flight delays. I will also minimize lost GDP output of the economy as a whole caused by flight delays.
 
@@ -40,40 +42,57 @@ The second objective is to determine the factors that are most correlated with f
 
 ### Model Source Data
 
-The source data from the model come from the Federal Bureau of Transportation Statistics. The data contains commercial carrier flight information for the months of January 2019 and January 2020. The 2019 file contains data for 583,985 flights and the 2020 contains data for 607,346 flight for a total of 1,191,331 flights. The features included in the data are:
+The data on flight delays for the machine learning model comes from the Federal Bureau of Transportation Statistics. The data contains commercial carrier flight information for the months of January 2019 and January 2020. The 2019 file contains data for 583,985 flights and the 2020 contains data for 607,346 flight for a total of 1,191,331 flights. The features included in the data are:
 
 * Day of the Month
 * Day of the Week
 * Airline
-* Plane IdentifierM
+* Plane Identifier
 * Departure Airport Code
 * Arrival Airport Code
 * Departure Time
 * Departure Delayed Indicator
-* Departure time Classification
+* Departure Time Classification
 * Arrival Time
 * Arrival Delayed Indicator
 * Canceled Indication
 * Diverted Indicator 
 * Flight Distance
 
-The FAA considers a flight delayed if departs the orgin airport or it arrives at the destination airport more that 15 mimutes after the scheduled time
+The FAA considers a flight delayed if it departs the orgin airport or it arrives at the destination airport more that 15 mimutes after the scheduled time.
 
-The project is also planning to incorporate weather at the departure airport and arrival airport during the scheduled flight time in the model
+The project is also planning to incorporate in the model weather data at the departure airport and arrival airport during the scheduled time of the flight
 
-The flight data files contains departure airport code and the arrival airport code fields. These fields contain the three letter FAA airport code such as ORD for Chicago O'Hare airport. An additional file contains the city or name of the airport associate with the three letter airport code. 
+The flight data files contains departure and arrival airport code fields. These fields contain the three letter FAA airport code, such as ORD for Chicago O'Hare airport. An additional file is included in the project data files that contains the city or name of the airport associate with the three letter airport code. 
 
-### Project File Description
+### Communication Protocol
 
-* These zipped files contain commercial flight data for January 2019 and 2020
-  * Flight_data_files/599747_1080724_compressed_Jan_2019_ontime.csv.zip
-  * Flight_data_files/599747_1080724_compressed_Jan_2020_ontime.csv.zip
-* This file contains the three letter airport code and the city or airport name associated with the code
-  * airport_codes_city.csv (airport_codes_city_raw.txt contains the raw data)
-* This file was used to clean the raw airport code and city name file download from the web
-  * airport_code_city.ipynb
-* This directory contains the flight delay table and bar charts contained in this document
-  * data_charts_tables
+The primary method project communication is through a Slack group direct message channel. All project team member have the Slack application on our phones so that messages between a team member and the project team will be received in a timely manner. If the need for more involved group collaboration arises, a Zoom session will be initiated by one of the project team member which will be joined by the remaining team members.
+
+### Project Deliverable Description
+
+| File Name | Directory | Description|
+|-----------|-----------|------------|
+|**Flight Data Files**|||
+|Flights_Data.ipynb|Database|Jupyter notebook to clean and select features from raw January 2019 and 2020 flight data files|
+|599747_1080724_compressed_Jan_2019_ontime.csv.zip|Flight_data_files|zipped raw January 2019 flight data file|
+|Jan_2019_ontime.csv|Flight_data_files|raw January 2019 flight data file|
+|jan_19_clean_data.csv|Database/Data/|cleaned January 2019 flight data file|
+|599747_1080724_compressed_Jan_2020_ontime.csv.zip|Flight_data_files|zipped raw January 2020 flight data file|
+|Jan_2020_ontime.csv|Flight_data_files|raw January 2020 flight data|
+|jan_20_clean_data.csv|Database/Data/|cleaned January 2020 flight data file|
+|**Airport Code City/Airport Name Files**|||
+|airport_code_city.ipynb| root|Jupyter notebook to clean raw code airport city/name data file files|
+|airport_codes_city_raw.txt|Flight_data_files|Raw airport code airport city/name data file|
+|airport_codes_city.csv|Flight_data_files|cleaned airport code airport city/name data file|
+|**Aircraft Type Data File**|||
+|ReleasableAircraft.zip|Flight_data_files|zipped file containing aircraft identification number and aircraft type|
+|**Machine Learning Model File**|||
+|Seg_one_model .ipynb|root|Jupyter notebook contining the machine leaning model implementation code|
+|**Readme Graphics Files**|||
+|flight_delayed_canceled_table.png|data_charts_table|readme data table containing flight on-time, delayed, and canceled statistics|
+|flight_delay_percent_plot.png|data_charts_table|readme bar chart of % flight delays 2011-19|
+|flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
 
 ### References
 
