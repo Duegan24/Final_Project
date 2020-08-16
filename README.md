@@ -1,6 +1,6 @@
 # Airline Flight Delay Analysis and Prediction
 
-## Overview
+## Introduction
 
 Business air travel is essential part of managing a company successfully even with the availability of feature rich remote working software, such as WebEx, Zoom, and Slack that enable teams to work together while being physically apart. According to David Brown founder and CEO of  TechStars, business travel is essential because face to face interactions cannot be replaced. Remote work groups and individuals “start to become too far removed from the business objective” without periodic face to face communication that requires business travel. [[1]](#references) The essential nature of fact to fact contact for effective business management is reinforced by research referenced in the Harvard business review that found in person requests were 34 time more effective than those made by text or email and suggested that a manager “could be a more effective communicator by having conversations in person.” [[2]](#references) Business travel also has a significant positive affect on GDP growth. A study by Harvard business school’s Growth Lab, found that “that business travel actually causes economic growth.” Data from the research shows that business travel by US companies added 1.07% to the global GDP (142 Trillion 2019) [[3]](#references) which amounted to 1.5 Trillion dollars in 2019. [[4]](#references) From the airline industry’s perspective, their financial stability is heavily depended on the revenue from the business traveler. Only 12% of airline passengers are business travelers, but they represent up to 75% of an airline’s profit [[5]](#references).
 
@@ -24,13 +24,44 @@ Because business travel is an essential part managing a business and has a signi
 
 Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative affect on both, having the ability to predict future flight delays wiill enable businesses to schedule travel when the probability of flight delay is low. This will enable businesses to minimize its lost productivity due to flight delays. I will also minimize lost GDP output tin the economy as a whole caused by flight delays.
 
-## Project Goal
+## Project 
 
-The goal of this project is to develop a machine learning model using linear regresssion to predict future flight delays and estimate the time amount of these delays. This will enable business to reduce the lost productivity cause by business travel flight delays.
+### Overview
+
+This project will develop a machine learning model using linear regression to predict flight delays and will give a numerical estimate the duration of the flight delay. 
+
+### Purpose
+
+This project has two objectives. 
+
+The first objective is to create a machine learning model that can predict flight delays. Businesses can use this model to plan business travel when the probability of flight delays is the lowest. 
+
+The second objective is to determine the factors that are most correlated with flight delays. This information will enable the FAA and regional government organizations that manage the aviation infrastructure to focus resources on reducing and eliminating the biggest factors that cause flight delays. 
 
 ## Model Source Data
 
-## 
+The source data from the model come from the Federal Bureau of Transportation Statistics. The data contains commercial carrier flight information for the months of January 2019 and January 2020. The 2019 file contains data for 583,985 flights and the 2020 contains data for 607,346 flight for a total of 1,191,331 flights. The features included in the data are:
+
+* Day of the Month
+* Day of the Week
+* Airline
+* Plane IdentifierM
+* Point of Origin
+* Point of Destination
+* Departure Time
+* Departure Delayed Indicator
+* Departure time Classification
+* Arrival Time
+* Arrival Delayed Indicator
+* Canceled Indication
+* Diverted Indicator 
+* Flight Distance
+
+The FAA considers a flight delayed if departs the orgin airport or it arrives at the destination airport more that 15 mimutes after the scheduled time
+
+The project is also planning to incorporate weather at the departure airport and arrival airport during the scheduled flight time in the model
+
+The goal of this project is to develop a machine learning model using linear regresssion to predict future flight delays and estimate the time amount of these delays. This will enable business to reduce the lost productivity cause by business travel flight delays.
 
 ### References
 
