@@ -65,6 +65,10 @@ The project is also planning to incorporate weather at the departure airport and
 
 The flight data files contains departure airport code and the arrival airport code fields. These fields contain the three letter FAA airport code such as ORD for Chicago O'Hare airport. An additional file contains the city or name of the airport associate with the three letter airport code. 
 
+## Communication Protocol
+
+The primary method project communication is through a Slack group direct message channel. All of the project team have the Slack application on our phones so that messages between a team member and the project team will be received in a timely manner. If the need for involved group collaboration arises, a Zoom session will be initiated by one of the project team member which will be joined by the remain members.
+
 ### Project File Description
 
 * These zipped files contain commercial flight data for January 2019 and 2020
