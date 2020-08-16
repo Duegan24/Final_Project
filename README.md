@@ -73,6 +73,7 @@ The primary method project communication is through a Slack group direct message
 
 | File Name | Directory | Description|
 |-----------|-----------|------------|
+|**Flight Data Files**|||
 |Flights_Data.ipynb|Database|Jupyter notebook to clean and select features from raw January 2019 and 2020 flight data files|
 |599747_1080724_compressed_Jan_2019_ontime.csv.zip|Flight_data_files|zipped raw January 2019 flight data file|
 |Jan_2019_ontime.csv|Flight_data_files|raw January 2019 flight data file|
@@ -80,15 +81,15 @@ The primary method project communication is through a Slack group direct message
 |599747_1080724_compressed_Jan_2020_ontime.csv.zip|Flight_data_files|zipped raw January 2020 flight data file|
 |Jan_2020_ontime.csv|Flight_data_files|raw January 2020 flight data|
 |jan_20_clean_data.csv|Database/Data/|cleaned January 2020 flight data file|
-|---|---|---|
+|**Airport Code City/Airport Name Files**|||
 |airport_code_city.ipynb| root|Jupyter notebook to clean raw code airport city/name data file files|
 |airport_codes_city_raw.txt|Flight_data_files|Raw airport code airport city/name data file|
 |airport_codes_city.csv|Flight_data_files|cleaned airport code airport city/name data file|
-||||
+|**Aircraft Type Data File**|||
 |ReleasableAircraft.zip|Flight_data_files|zipped file containing aircraft identification number and aircraft type|
-||||
+|**Machine Learning Model File**|||
 |Seg_one_model .ipynb|root|Jupyter notebook contining the machine leaning model implementation code|
-||||
+|**Readme Graphics Files**|||
 |flight_delayed_canceled_table.png|data_charts_table|readme data table containing flight on-time, delayed, and canceled statistics|
 |flight_delay_percent_plot.png|data_charts_table|readme bar chart of % flight delays 2011-19|
 |flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
