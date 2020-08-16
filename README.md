@@ -7,6 +7,11 @@ Business air travel is essential part of managing a company successfully and the
 
 Flight delay have a significant effect on the productivity of businesses and the economy Research by the FAA found that “inefficiency in the air transportation sector increases the cost of doing business for other sectors, making the associated business less productive.” [6] The overall cost of flight delays including reduced GDP and increased airline operating costs for 2018 was $28 billion dollars. [7] The significant negative impact of flight delays on economic productivity and airline operating codes is further supported by the Bureau of Transportation Statistics which show that on average 18.33% of all flights between 2011 and 2019 were delayed. When Canceled flights are added in, the cumulative data shows that on average 20% of flights failed to make their destination on time or at all. [8]. This mean that a business traveler will be delayed from arriving at their destination on time every one out of five flights.
 
+<img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_delayed_canceled_table.png" title="Flight Delay Canceled Data Table" alt="Flight Delay Canceled Data Table" height="300" width="600">
+
+<img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_delay_percent_plot.png" title="Flight Delay Bar Chart" alt="Flight Delay Bar Chart" height="200" width="300">
+
+<img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
 
 Given how integral business travel is to business success and the overall economy's GDP and how flight delays have a significant negative affect on both, predicting when  flight delays will occur so that businesses travel can be scheduled when the probability of a delayed flight is low, will enable businesses to minimize the lost productivity due to flight delays and minimize the negative effect of flight delays on GDP output.
 
