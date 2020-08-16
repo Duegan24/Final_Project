@@ -40,7 +40,7 @@ The goal of this project is to develop a machine learning model using linear reg
 [[3]](https://www.statista.com/statistics/268750/global-gross-domestic-product-gdp/) Global gross domestic product (GDP) at current prices from 2009 to 2021, *statista.com, H. Plecher, Jun 3, 2020*
 
 
-[[4]](https://growthlab.cid.harvard.edu/academic-research/business-travel) Knowledge diffusion in the network of international business travel, *The Growth Lab, Harvard Center for International development , Michele Coscia, Frank M. H. Neffke & Ricardo Hausmann, 10 August 2020*
+[[4]](https://www.nature.com/articles/s41562-020-0922-x) Knowledge diffusion in the network of international business travel, *Nature Human Behaviour, Michele Coscia, Frank M. H. Neffke & Ricardo Hausmann The Growth Lab, Harvard Center for International development, 10 August 2020*
 
 
 [[5]](https://www.investopedia.com/ask/answers/041315/how-much-revenue-airline-industry-comes-business-travelers-compared-leisure-travelers.asp) How Much of Airlines' Revenue Comes From Business Travelers? *investopedia.com, Jul 15, 2019*
