@@ -71,8 +71,9 @@ The flight data files contains departure airport code and the arrival airport co
 * This file contains the three letter airport code and the city or airport name associated with the code
   * airport_codes_city.csv (airport_codes_city_raw.txt contains the raw data)
 * This file was used to clean the raw airport code and city name file download from the web
- * airport_code_city.ipynb
+  * airport_code_city.ipynb
 * This directory contains the flight delay table and bar charts contained in this document
+  * data_charts_tables
 
 ### References
 
