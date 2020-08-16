@@ -19,7 +19,7 @@ Because business air travel is an essential part managing a business successfull
 <p align="center">
   <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
   <br/>
-  [8]
+  [8](#references)
 </p>
 
 Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative affect on both, having the ability to predict future flight delays will enable businesses to schedule travel when the probability of flight delay is low. This will enable businesses to minimize its lost productivity due to flight delays. I will also minimize lost GDP output of the economy as a whole caused by flight delays.
