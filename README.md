@@ -34,16 +34,16 @@ The goal of this project is to develop a machine learning model using linear reg
 [[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*
 
 
-[[2]](https://hbr.org/2017/04/a-face-to-face-request-is-34-times-more-successful-than-an-email) A Face-to-Face Request Is 34 Times More Successful Than an Email, Harvard Business Review, *Vanessa K. Bohns, April 11, 2017*
+[[2]](https://hbr.org/2017/04/a-face-to-face-request-is-34-times-more-successful-than-an-email) A Face-to-Face Request Is 34 Times More Successful Than an Email, *Harvard Business Review, Vanessa K. Bohns, April 11, 2017*
+
+Knowledge diffusion in the network of international business travel
+[[3]](https://www.statista.com/statistics/268750/global-gross-domestic-product-gdp/) Global gross domestic product (GDP) at current prices from 2009 to 2021 *statista.com, H. Plecher, Jun 3, 2020
 
 
-[[3]](https://www.statista.com/statistics/268750/global-gross-domestic-product-gdp/) Global gross domestic product (GDP) at current prices from 2009 to 2021 *www.statista.com, H. Plecher, Jun 3, 2020
+[[4]](https://growthlab.cid.harvard.edu/academic-research/business-travel) Knowledge diffusion in the network of international business travel *The Growth Lab, Harvard Center for International development , Michele Coscia, Frank M. H. Neffke & Ricardo Hausmann, 10 August 2020
 
 
-[[4]](https://growthlab.cid.harvard.edu/academic-research/business-travel)
-
-
-[[5]](https://www.investopedia.com/ask/answers/041315/how-much-revenue-airline-industry-comes-business-travelers-compared-leisure-travelers.asp)
+[[5]](https://www.investopedia.com/ask/answers/041315/how-much-revenue-airline-industry-comes-business-travelers-compared-leisure-travelers.asp) How Much of Airlines' Revenue Comes From Business Travelers? *investopedia.com, Jul 15, 2019
 
 
 [[6]](https://www.airlines.org/data/annual-u-s-impact-of-flight-delays-nextor-report/)
