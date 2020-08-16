@@ -38,7 +38,7 @@ The first objective is to create a machine learning model that can predict fligh
 
 The second objective is to determine the factors that are most correlated with flight delays. This information will enable the FAA and regional government organizations that manage the aviation infrastructure to focus resources on reducing and eliminating the biggest factors that cause flight delays. 
 
-## Model Source Data
+### Model Source Data
 
 The source data from the model come from the Federal Bureau of Transportation Statistics. The data contains commercial carrier flight information for the months of January 2019 and January 2020. The 2019 file contains data for 583,985 flights and the 2020 contains data for 607,346 flight for a total of 1,191,331 flights. The features included in the data are:
 
@@ -46,8 +46,8 @@ The source data from the model come from the Federal Bureau of Transportation St
 * Day of the Week
 * Airline
 * Plane IdentifierM
-* Point of Origin
-* Point of Destination
+* Departure Airport Code
+* Arrival Airport Code
 * Departure Time
 * Departure Delayed Indicator
 * Departure time Classification
@@ -61,7 +61,18 @@ The FAA considers a flight delayed if departs the orgin airport or it arrives at
 
 The project is also planning to incorporate weather at the departure airport and arrival airport during the scheduled flight time in the model
 
-The goal of this project is to develop a machine learning model using linear regresssion to predict future flight delays and estimate the time amount of these delays. This will enable business to reduce the lost productivity cause by business travel flight delays.
+The flight data files contains departure airport code and the arrival airport code fields. These fields contain the three letter FAA airport code such as ORD for Chicago O'Hare airport. An additional file contains the city or name of the airport associate with the three letter airport code. 
+
+### Project File Description
+
+* These zipped files contain commercial flight data for January 2019 and 2020
+  * Flight_data_files/599747_1080724_compressed_Jan_2019_ontime.csv.zip
+  * Flight_data_files/599747_1080724_compressed_Jan_2020_ontime.csv.zip
+* This file contains the three letter airport code and the city or airport name associated with the code
+  * airport_codes_city.csv (airport_codes_city_raw.txt contains the raw data)
+* This file was used to clean the raw airport code and city name file download from the web
+ * airport_code_city.ipynb
+* This directory contains the flight delay table and bar charts contained in this document
 
 ### References
 
