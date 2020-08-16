@@ -19,6 +19,6 @@ Flight delay have a significant effect on the productivity of businesses and the
   <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
 </p>
 
-Given how integral business travel is to business success and the overall economy's GDP and how flight delays have a significant negative affect on both, predicting when  flight delays will occur so that businesses travel can be scheduled when the probability of a delayed flight is low, will enable businesses to minimize the lost productivity due to flight delays and minimize the negative effect of flight delays on GDP output.
+Given how integral business travel is to business success and the overall economy's GDP and how flight delays have a significant negative affect on both, predicting flight so that businesses travel can be scheduled when the probability of a delayed flight is low, will enable businesses to minimize the lost productivity due to flight delays and minimize lost GDP output due to flight delays.
 
 
