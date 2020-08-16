@@ -42,32 +42,32 @@ The second objective is to determine the factors that are most correlated with f
 
 ### Model Source Data
 
-The source data from the model come from the Federal Bureau of Transportation Statistics. The data contains commercial carrier flight information for the months of January 2019 and January 2020. The 2019 file contains data for 583,985 flights and the 2020 contains data for 607,346 flight for a total of 1,191,331 flights. The features included in the data are:
+The data on flight delays for the machine learning model comes from the Federal Bureau of Transportation Statistics. The data contains commercial carrier flight information for the months of January 2019 and January 2020. The 2019 file contains data for 583,985 flights and the 2020 contains data for 607,346 flight for a total of 1,191,331 flights. The features included in the data are:
 
 * Day of the Month
 * Day of the Week
 * Airline
-* Plane IdentifierM
+* Plane Identifier
 * Departure Airport Code
 * Arrival Airport Code
 * Departure Time
 * Departure Delayed Indicator
-* Departure time Classification
+* Departure Time Classification
 * Arrival Time
 * Arrival Delayed Indicator
 * Canceled Indication
 * Diverted Indicator 
 * Flight Distance
 
-The FAA considers a flight delayed if departs the orgin airport or it arrives at the destination airport more that 15 mimutes after the scheduled time
+The FAA considers a flight delayed if it departs the orgin airport or it arrives at the destination airport more that 15 mimutes after the scheduled time.
 
-The project is also planning to incorporate weather at the departure airport and arrival airport during the scheduled flight time in the model
+The project is also planning to incorporate in the model weather data at the departure airport and arrival airport during the scheduled time of the flight
 
-The flight data files contains departure airport code and the arrival airport code fields. These fields contain the three letter FAA airport code such as ORD for Chicago O'Hare airport. An additional file contains the city or name of the airport associate with the three letter airport code. 
+The flight data files contains departure and arrival airport code fields. These fields contain the three letter FAA airport code, such as ORD for Chicago O'Hare airport. An additional file is included in the project data files that contains the city or name of the airport associate with the three letter airport code. 
 
 ### Communication Protocol
 
-The primary method project communication is through a Slack group direct message channel. All of the project team have the Slack application on our phones so that messages between a team member and the project team will be received in a timely manner. If the need for involved group collaboration arises, a Zoom session will be initiated by one of the project team member which will be joined by the remain members.
+The primary method project communication is through a Slack group direct message channel. All project team member have the Slack application on our phones so that messages between a team member and the project team will be received in a timely manner. If the need for more involved group collaboration arises, a Zoom session will be initiated by one of the project team member which will be joined by the remaining team members.
 
 ### Project Deliverable Description
 
