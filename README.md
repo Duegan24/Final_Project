@@ -26,7 +26,7 @@ Given how integral business travel is to business success and the overall econom
 
 ## Project Goal
 
-The goal of this project is to develop a machine learning model using linear regresssion to predict future flight delays and estimate the time amount of these delays.
+The goal of this project is to develop a machine learning model using linear regresssion to predict future flight delays and estimate the time amount of these delays. This will enable business to reduce the lost productivity cause by business travel flight delays.
 
 ## Model Source Data
 
