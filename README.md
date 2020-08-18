@@ -36,7 +36,7 @@ This project will develop a machine learning model using linear regression that 
 
 This project has two objectives. 
 
-The first objective is to create a machine learning model that can predict flight delays so that businees can use this model to plan business travel when the probability of flight delays is the lowest. 
+The first objective is to create a machine learning model that can predict flight delays so that businesses can use this model to plan business travel when the probability of flight delays is the lowest.
 
 The second objective is to determine the factors that are most correlated with flight delays. This information will enable the FAA and regional government organizations that manage the aviation infrastructure to focus resources on reducing and eliminating the biggest factors that cause flight delays. 
 
@@ -59,7 +59,7 @@ The data on flight delays for the machine learning model comes from the Federal 
 * Diverted Indicator 
 * Flight Distance
 
-The FAA considers a flight delayed if it departs the orgin airport or it arrives at the destination airport more that 15 mimutes after the scheduled time.
+The FAA considers a flight delayed if it departs the origin airport or it arrives at the destination airport more than 15 minutes after the scheduled time.
 
 The project is also planning to incorporate in the model weather data at the departure airport and arrival airport during the scheduled time of the flight
 
