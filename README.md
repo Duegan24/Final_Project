@@ -24,7 +24,7 @@ Because business air travel is an essential part managing a business successfull
 [[8]](#references)
 
 
-Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative effect on both, having the ability to predict future flight delays will enable businesses to schedule travel when the probability of flight delay is low. This will enable businesses to minimize its lost productivity due to flight delays. I will also minimize lost GDP output of the economy as a whole caused by flight delays.
+Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative effect on both, having the ability to predict future flight delays will enable businesses to schedule travel when the probability of flight delay is low. This will enable businesses to minimize its lost productivity due to flight delays. I will also minimize the lost GDP output of the economy as a whole caused by flight delays.
 
 ## Project 
 
