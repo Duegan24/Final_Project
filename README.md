@@ -2,11 +2,7 @@
 
 ## Introduction
 
-Business air travel is essential part of managing a company successfully even with the availability of feature-rich, remote collaboration software, such as WebEx, Zoom, and Slack. According to David Brown founder and CEO of  TechStars, business travel is essential because face to face interactions cannot be replaced. Remote work groups and individuals “start to become too far removed from the business objective” without periodic face to face communication that requires business travel. [[1]](#references) The essential nature of face to fact contact for effective business management is reinforced by research cited in the Harvard business review. This research found in person requests were 34 time more effective than those made by text or email and suggests that a manager “could be a more effective communicator by having conversations in person.” [[2]](#references) Business travel also has a significant positive affect on GDP growth. A study by Harvard business school’s Growth Lab, found that “that business travel actually causes economic growth.” Data from the research shows that business travel by US companies contributed 1.07% to the global GDP (142 Trillion 2019) [[3]](#references) in 2019 which amounts to 1.5 Trillion dollars. [[4]](#references) From the airline industry’s perspective, their financial stability is heavily depended on the revenue from the business traveler. Only 12% of airline passengers are business travelers, but they represent up to 75% of an airline’s profit [[5]](#references).
-
-
 Because business air travel is an essential part managing a business successfully and has a significant positive effect on economic growth, airline flight delays, in turn, result in lost business productivity and a reduction of the economy's GDP. Research by the FAA found that “inefficiency in the air transportation sector increases the cost of doing business for other sectors, making the associated business less productive.” [[6]](#references) In 2018, the cost of flight delays including reduced GDP and increased airline operating costs was $28 billion dollars. [[7]](#references) Given these facts on the negative effects of flight delays, how often will a business traveler encounter a flight delay? Data on flight delays from Bureau of Transportation Statistics show that between 2011 and 2019 on average 18.33% of all flights were delayed. If the percentage of cancelled flights are included, the cumulative data shows that on average 20% of flights failed to make their destination on time or at all. [[8]](#references) This mean that a business traveler will be experience a flight delay every one out of five flights.
-
 
 <p align="center">
   <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_delayed_canceled_table.png" title="Flight Delay Canceled Data Table" alt="Flight Delay Canceled Data Table" height="300" width="600">
@@ -24,7 +20,7 @@ Because business air travel is an essential part managing a business successfull
 [[8]](#references)
 
 
-Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative effect on both, having the ability to predict future flight delays will enable businesses to schedule travel when the probability of flight delay is low. This will enable businesses to minimize its lost productivity due to flight delays. I will also minimize the lost GDP output of the economy as a whole caused by flight delays.
+Given how integral business travel is to business success and the overall economy's GDP output and how flight delays have a significant negative effect on both, having the ability to predict future flight delays will enable businesses to schedule travel when the probability of a flight delay is low. This will enable businesses to minimize the lost productivity due to flight delays. I will also minimize the lost GDP output of the economy as a whole caused by flight delays.
 
 ## Project 
 
