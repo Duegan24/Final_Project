@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Delay Predictor</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="static/css/FlightDelayPredictor.css">
+</head>
+<body class="bg-dark">
+	<div class="wrapper">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg article-section">
+            <a class="navbar-brand" href="index.html">Navbar Message</a>
+        </nav>
+        <div class="jumbotron article-section">
+
+        </div>
+        <div class="container-fluid">
+             <div class="row justify-content-center">
+                <div class="col-md-10 filter-header">
+                    <img src="static/images/airline_system_map.png" height="500" width="900">
+                </div>
+            </div>
+            <br/>
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <form>
+                        <div>
+                            <label for="origin_states">Origin State</label>
+                            <br/>
+                            <select class="custom-select text-white bg-dark" id="origin_states">
+                            </select>
+                        </div>
+                        <div>
+                            <label for="origin_state_airports">Origin Airport</label>
+                            <br/>
+                            <select class="custom-select text-white bg-dark" id="origin_state_airports">
+                            </select>
+                        </div>
+                     </form>
+                </div>
+            </div>
+            <br/>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script id="jscript-file-app" src="/static/js/FlightDelayPredictor.js"></script>
+</body>
+</html>
