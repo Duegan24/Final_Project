@@ -1,48 +1,58 @@
 
+// Assign event handlers to select controls
+origin_states = d3.select("#origin_states").on("change", onChangeOrgStatesEventHandler);
 
+//d3.select("#origin_airports").on("change", onChangeOrgStatesEventHandler);
 
-d3.json("/get_origin_states", function(originStates) {
-    d3Select = d3.select("#origin_states");
+// On page load - populate origin_states select control
+onChangePopulateSelectCtrl(origin_states, "/get_origin_states")
 
-    d3Select.on("change", onChangeOrgStatesEventHandler);
+function clearSelectOptions(selectIdArray){
 
-    // Append select options to the select object for each filter data field unique value
-    originStates.forEach((valueArray) => {
-        if(valueArray !== null){
-            d3Select.append("option").attr("value", valueArray[0]).text(valueArray[0]);
-        }
-    });
+    var select
+    if (selectIdArray !== null){
 
-});
+        selectIdArray.forEach((selectId) => {
 
-function clearSelectOptions(selectId){
+            select = document.getElementById(selectId);
 
-    var select = document.getElementById(selectId);
+            if (select !== null){
 
-    if (select !== null){
-
-        for (i = select.length - 1; i >= 0; i--) {
-            select.remove(i);
-        }
+                for (i = select.length - 1; i >= 0; i--) {
+                    select.remove(i);
+                }
+            }
+        });
     }
  }
 
-function onChangeOrgStatesEventHandler(){
-
-    originStateCode = d3.event.target.value;
-
-    d3.json("/get_origin_state_airports?origin_state_code=" + originStateCode, (originStateAirports) => {
-        
-        selectId = "origin_state_airports"
-
-        clearSelectOptions(selectId)
-
-        d3Select = d3.select("#origin_state_airports")
  
-        if (originStateAirports !== null){
+function onChangePopulateSelectCtrl(selectCtrlId, url, urlParamValues, clearSelectCtrlIdArray){
+
+    if (urlParamValues !== null){
+        for (index = 0; index < urlParamValues.length; index++){
+            url = url.replace("[" + index + "]", encodeURI(urlParamValues[index]))
+        }
+    }
+
+    clearSelectOptions(clearSelectCtrlIdArray)
+
+
+    d3.json(url, (values) => {
+ 
+        d3Select = d3.select("#" + selectCtrlId)
+ 
+        if (values !== null){
+
             // Append select options to the select object for each filter data field unique value
             originStateAirports.forEach((valueArray) => {d3Select.append("option").attr("value", valueArray[1]).text(valueArray[0])});
         }
     
     });
 }
+
+
+function onChangeOrgStatesEventHandler(){
+    onChangePopulateSelectCtrl("dest_states", "/get_dest_states?origin_airport_code=[0]", [d3.event.target.value], ["dest_states"])
+}
+

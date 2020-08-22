@@ -28,9 +28,8 @@ def get_origin_state_airports():
 @app.route("/get_dest_states")
 def get_dest_states():
 
-   date = request.args.get("date")
    origin_airport_code = request.args.get("origin_airport_code")
-   dest_states_list = predictor.get_dest_states(date, origin_airport_code)
+   dest_states_list = predictor.get_dest_states(origin_airport_code)
 
    return jsonify(dest_states_list)
 
