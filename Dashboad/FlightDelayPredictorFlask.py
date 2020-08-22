@@ -10,28 +10,33 @@ predictor = FlightDelayPredictor()
 def flight_delay_predictor():
    return render_template("FlightDelayPredictor.html")
 
-@app.route("/get_origin_states")
-def get_origin_states():
+@app.route("/get_select_opt_origin_states")
+def get_select_opt_origin_states():
 
    origin_states_list = predictor.get_origin_states()
 
-   return jsonify(origin_states_list)
+   select_option_list = convert_to_opt_name_value_list(origin_states_list)
 
-@app.route("/get_origin_state_airports")
+   return jsonify(select_option_list)
+
+@app.route("/get_select_opt_origin_airports")
 def get_origin_state_airports():
 
-   origin_state_code = request.args.get("origin_state_code")
-   origin_state_airports_list = predictor.get_origin_state_airports(origin_state_code)
+   origin_state = request.args.get("origin_state")
+   print("origin_state:" + origin_state)
+   select_option_list = predictor.get_origin_airports(origin_state)
 
-   return jsonify(origin_state_airports_list)
+   return jsonify(select_option_list)
 
-@app.route("/get_dest_states")
+@app.route("/get_select_opt_dest_states")
 def get_dest_states():
 
    origin_airport_code = request.args.get("origin_airport_code")
    dest_states_list = predictor.get_dest_states(origin_airport_code)
+   
+   select_option_list = convert_to_opt_name_value_list(dest_states_list)
 
-   return jsonify(dest_states_list)
+   return jsonify(select_option_list)
 
 @app.route("/get_dest_state_airports")
 def get_dest_state_airports():
@@ -53,6 +58,10 @@ def get_dest_flight_info():
 
    return jsonify(dest_flight_info)
 
+
+def convert_to_opt_name_value_list(singleList): 
+      
+    return [[singleList[i], singleList[i]] for i in range(0, len(singleList))] 
 
 if __name__ == "__main__":
     app.run(debug=True)
