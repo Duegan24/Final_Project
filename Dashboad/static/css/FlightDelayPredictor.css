@@ -22,3 +22,13 @@ form div {
 .select-dates{
     width: 80px;
 }
+
+.flight-predict-delay {
+    background-color: red;
+    color: yellow;
+}
+
+.flight-predict-ontime {
+    background-color: green;
+    color: white;
+}

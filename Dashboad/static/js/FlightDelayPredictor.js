@@ -1,43 +1,38 @@
-let selectCtrlIdsCascadeArray = ["origin_states", "origin_airports", "dest_states", "dest_airports", "dest_airlines", "dest_dates"]
-
-// On page load - populate origin_states select control
-onChangePopulateSelectCtrl("origin_states", "/get_select_opts_origin_states")
-
 // Assign event handlers to select controls
-let select_origin_states = d3.select("#origin_states")
+let select_origin_states = d3.select("#origin_states");
 select_origin_states.on("change", function (){
-    onChangePopulateSelectCtrl("origin_airports", "/get_select_opts_origin_airports?origin_state=[0]", [d3.event.target.value])
+    onChangePopulateSelectCtrl("origin_airports", "/get_select_opts_origin_airports?origin_state=[0]", [d3.event.target.value]);
 });
 
-let select_origin_airports = d3.select("#origin_airports")
+let select_origin_airports = d3.select("#origin_airports");
 select_origin_airports.on("change", function(){
-    onChangePopulateSelectCtrl("dest_states", "/get_select_opts_dest_states?origin_airport_code=[0]", [d3.event.target.value])
+    onChangePopulateSelectCtrl("dest_states", "/get_select_opts_dest_states?origin_airport_code=[0]", [d3.event.target.value]);
 });
 
-let select_dest_states = d3.select("#dest_states")
+let select_dest_states = d3.select("#dest_states");
 select_dest_states.on("change", function(){
 
     let originAirportCode = getSelectedOption(select_origin_airports);
     let destState = d3.event.target.value;
-    let urlParamValues = [originAirportCode, destState]
+    let urlParamValues = [originAirportCode, destState];
     
-    onChangePopulateSelectCtrl("dest_airports", "/get_select_opts_dest_airports?origin_airport_code=[0]&dest_state=[1]", urlParamValues)
+    onChangePopulateSelectCtrl("dest_airports", "/get_select_opts_dest_airports?origin_airport_code=[0]&dest_state=[1]", urlParamValues);
 });
 
-let select_dest_airport = d3.select("#dest_airports")
-select_dest_airport.on("change", function(){
+let select_dest_airports = d3.select("#dest_airports");
+select_dest_airports.on("change", function(){
 
     let originAirportCode = getSelectedOption(select_origin_airports);
     let destAirportCode = d3.event.target.value;
-    let urlParamValues = [originAirportCode, destAirportCode]
+    let urlParamValues = [originAirportCode, destAirportCode];
     
-    onChangePopulateSelectCtrl("dest_airlines", "/get_select_opts_dest_airlines?origin_airport_code=[0]&dest_airport_code=[1]", urlParamValues)
+    onChangePopulateSelectCtrl("dest_airlines", "/get_select_opts_dest_airlines?origin_airport_code=[0]&dest_airport_code=[1]", urlParamValues);
 });
 
-let select_dest_airlines = d3.select("#dest_airlines")
+let select_dest_airlines = d3.select("#dest_airlines");
 select_dest_airlines.on("change", function(){
 
-    deleteSelectOptions("dest_dates")
+    deleteSelectOptions("dest_dates");
      
     if (d3.event.target.value === "" || d3.event.target.value === null){
         return;
@@ -55,7 +50,38 @@ select_dest_airlines.on("change", function(){
 });
 
 
+let select_dest_date = d3.select("#dest_dates");
+select_dest_date.on("change", function(){
 
+    let originAirportCode = getSelectedOption(select_origin_airports);
+    let destAirportCode   = getSelectedOption(select_dest_airports);
+    let travel_date = encodeURI(d3.event.target.value);
+    let url = "/get_flight_predict_data?origin_airport_code=[0]&dest_airport_code=[1]&travel_date";
+    let urlParamValues = [originAirportCode, destAirportCode, travel_date];
+    
+    getDataAsync(url, urlParamValues, (dataArray) => {
+        let cellIdTemplate = "#flight_delay_col_";
+        let index = 0;
+
+        dataArray.forEach((value) => {
+            
+            cellId = cellIdTemplate + index;
+
+            if (value === 0) { 
+                d3.select(cellId).classed("flight-predict-ontime", true);
+            }
+            else {
+                d3.select(cellId).classed("flight-predict-delay", true);
+            }
+
+            index++
+        });
+    });
+
+
+
+    onChangePopulateSelectCtrl("dest_airlines", "/get_flight_predict_data?origin_airport_code=[0]&dest_airport_code=[1]&travel_date", urlParamValues)
+});
 
 function populateSelectOptions(selectCtrlId, dataArray){
     
@@ -63,7 +89,6 @@ function populateSelectOptions(selectCtrlId, dataArray){
  
     if (dataArray !== null){
 
-        console.log(dataArray);
         // Append select options to the select object for each row of data
         dataArray.forEach((rowArray) => {
             optionText = rowArray[0];
@@ -97,6 +122,8 @@ function deleteSelectOptions(selectId){
     }
 
 }
+
+let selectCtrlIdsCascadeArray = ["origin_states", "origin_airports", "dest_states", "dest_airports", "dest_airlines", "dest_dates"];
 
 function deleteCascadeSelectsOptions(selectPopulateId){
 
@@ -148,5 +175,7 @@ function onChangePopulateSelectCtrl(selectCtrlId, url, urlParamValues){
     });
 }
 
+// On page load - populate origin_states select control
+onChangePopulateSelectCtrl("origin_states", "/get_select_opts_origin_states");
 
 
