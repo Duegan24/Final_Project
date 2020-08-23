@@ -18,10 +18,10 @@ class FlightDelayPredictor:
    
         return self.database.get_dest_states(origin_airport_code)
 
-    def get_dest_state_airports(self, date, origin_state_code, dest_state_code):
+    def get_dest_state_airports(self, origin_airport_code, dest_state):
         
-        return []
+        return self.database.get_dest_airports(origin_airport_code, dest_state)
 
-    def get_dest_flight_info(self, date, origin_airport, dest_airport_code):
+    def get_dest_airlines(self, origin_airport, dest_airport_code):
 
-        return []
+        return self.database.get_dest_airlines(origin_airport, dest_airport_code)

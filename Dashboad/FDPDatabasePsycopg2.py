@@ -27,6 +27,15 @@ class FDPDatabasePsycopg2:
         return self.execute_select(databaseConfig["sql_select_dest_states"], {"origin_airport_code":origin_airport_code})
 
 
+    def get_dest_airports(self, origin_airport_code, dest_state):
+
+        return self.execute_select(databaseConfig["sql_select_dest_airports"], {"origin_airport_code":origin_airport_code, "dest_state":dest_state})
+
+
+    def get_dest_airlines(self, origin_airport_code, dest_airport_code):
+
+        return self.execute_select(databaseConfig["sql_select_dest_airlines"], {"origin_airport_code":origin_airport_code, "dest_airport_code":dest_airport_code})
+
     def execute_select(self, sql, params_dict = {}):
 
         try:

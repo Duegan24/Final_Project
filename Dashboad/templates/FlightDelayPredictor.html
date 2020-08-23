@@ -15,40 +15,46 @@
 <body class="bg-dark">
 	<div class="wrapper">
         <nav class="navbar navbar-dark bg-dark navbar-expand-lg article-section">
-            <a class="navbar-brand" href="index.html">Navbar Message</a>
+            <a class="navbar-brand" href="index.html">Flight Delay Predictor</a>
         </nav>
-        <div class="jumbotron article-section">
-
+        <div class="jumbotron justify-content-center bg-dark">
+            <h1 class="display-5">Flight Delay Predictiction</h1>
+            <p class="lead">Choose Travel Origin, Destination, Airline, and Travel Date</p>
+            <hr class="my-2">
+            <p>Disclaimer Garbage In Garbage Out</p>
         </div>
         <div class="container-fluid">
-             <div class="row justify-content-center">
-                <div class="col-md-10 filter-header">
-                    <img src="static/images/airline_system_map.png" height="500" width="900">
+             <div class="row">
+                <div class="col-md-6">
+                    <img src="static/images/airline_system_map.png" height="400" width="800">
                 </div>
-            </div>
-            <br/>
-            <div class="row justify-content-center">
-                <div class="col-md-9">
+                <div class="col-md-6">
                     <form>
                         <div>
                             <label for="origin_states">Origin State</label>
-                            <br/>
-                            <select class="custom-select text-white bg-dark" id="origin_states">
-                            </select>
+                            <select class="custom-select text-white bg-dark select-state" id="origin_states"></select>
                         </div>
-                        <div>                        <div>
+                        <div>
                             <label for="origin_airports">Origin Airport</label>
-                            <br/>
-                            <select class="custom-select text-white bg-dark" id="origin_airports">
-                            </select>
+                            <select class="custom-select text-white bg-dark select-airport" id="origin_airports"></select>
                         </div>
-                       <div>
+                        <div>
                             <label for="dest_states">Destination State</label>
-                            <br/>
-                            <select class="custom-select text-white bg-dark" id="dest_states">
-                            </select>
+                            <select class="custom-select text-white bg-dark select-state" id="dest_states"></select>
                         </div>
-                     </form>
+                        <div>
+                            <label for="dest_aiports">Destination Airport</label>
+                            <select class="custom-select text-white bg-dark select-airport" id="dest_airports"></select>
+                        </div>
+                        <div>
+                            <label for="dest_airlines">Airline</label>
+                            <select class="custom-select text-white bg-dark" id="dest_airlines"></select>
+                        </div>
+                        <div>
+                            <label for="dest_dates">Travel Date</label>
+                            <select class="custom-select text-white bg-dark select-dates" id="dest_dates"></select>
+                        </div>
+                    </form>
                 </div>
             </div>
             <br/>

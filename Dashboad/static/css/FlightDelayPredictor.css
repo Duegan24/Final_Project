@@ -10,3 +10,15 @@ form div {
     font-size: medium;
     text-align: center;
 }
+
+.select-state {
+    width: 125px;
+}
+
+.select-airport{
+    width: 325px;
+}
+
+.select-dates{
+    width: 80px;
+}
