@@ -48,14 +48,7 @@ class FDPDatabasePsycopg2:
 
             cursor.execute(sql)
 
-            results = cursor.fetchall()
-
-            select_opts = []
-
-            for row in results:
-                select_opts.append(row)
-
-            return select_opts
+            return cursor.fetchall()
 
         except (Exception, psycopg2.Error) as error:
 

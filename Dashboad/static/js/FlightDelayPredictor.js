@@ -1,4 +1,4 @@
-let selectCtrlIdsArray = ["origin_states", "origin_airports", "dest_states", "dest_airports", "dest_airlines", "dest_dates"]
+let selectCtrlIdsCascadeArray = ["origin_states", "origin_airports", "dest_states", "dest_airports", "dest_airlines", "dest_dates"]
 
 // On page load - populate origin_states select control
 onChangePopulateSelectCtrl("origin_states", "/get_select_opts_origin_states")
@@ -50,7 +50,7 @@ select_dest_airlines.on("change", function(){
         date = "1/" + index + "/2021";
         dataArray[index] = [date,date];
     }
-"dest_dates"
+
     populateSelectOptions("dest_dates", dataArray);
 });
 
@@ -63,8 +63,12 @@ function populateSelectOptions(selectCtrlId, dataArray){
  
     if (dataArray !== null){
 
+        console.log(dataArray);
         // Append select options to the select object for each row of data
-        dataArray.forEach((rowArray) => {d3Select.append("option").attr("value", rowArray[1]).text(rowArray[0])});
+        dataArray.forEach((rowArray) => {
+            optionText = rowArray[0];
+            optionValue = rowArray[1]
+            d3Select.append("option").attr("value", optionValue).text(optionText)});
     }
 }
 
@@ -94,11 +98,11 @@ function deleteSelectOptions(selectId){
 
 }
 
-function deleteMultiSelectsOptions(selectPopulateId){
+function deleteCascadeSelectsOptions(selectPopulateId){
 
     clearNextSelectId = false
 
-    selectCtrlIdsArray.forEach((selectId) => {
+    selectCtrlIdsCascadeArray.forEach((selectId) => {
 
         if (clearNextSelectId === false){
             if (selectId === selectPopulateId){
@@ -114,11 +118,7 @@ function deleteMultiSelectsOptions(selectPopulateId){
      });
  }
 
-
-
-function onChangePopulateSelectCtrl(selectCtrlId, url, urlParamValues){
-
-    deleteMultiSelectsOptions(selectCtrlId)
+function getDataAsync(url, urlParamValues, callbackFunction){
 
     let paramValue;
 
@@ -131,19 +131,22 @@ function onChangePopulateSelectCtrl(selectCtrlId, url, urlParamValues){
             //option has been selected and the d3 request will 
             //return an empty dataArray so just return here. 
             if (paramValue.length === 0 || paramValue === null){
-                return
+                return null;
             }
 
             url = url.replace("[" + index + "]", encodeURI(urlParamValues[index]))
         }
     }
 
+    d3.json(url, callbackFunction);
+}
 
-    d3.json(url, (dataArray) => {
-
+function onChangePopulateSelectCtrl(selectCtrlId, url, urlParamValues){
+    deleteCascadeSelectsOptions(selectCtrlId)
+    getDataAsync(url, urlParamValues,(dataArray) => {
         populateSelectOptions(selectCtrlId, dataArray);
-    
     });
 }
+
 
 
