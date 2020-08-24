@@ -175,7 +175,12 @@ select_dest_airlines.on("change", function(){
     let date;
 
     for (index = 1; index < 32; index++) {
-        date = "1/" + index + "/2021";
+        if (index < 10){
+            date = "01/0" + index + "/2021";
+        }
+        else {
+            date = "01/0" + index + "/2021";
+        }
         dataArray[index] = [date,date];
     }
 
@@ -186,9 +191,16 @@ select_dest_airlines.on("change", function(){
 let select_dest_dates = d3.select("#dest_dates");
 select_dest_dates.on("change", function(){
 
+    let travel_date = d3.event.target.value;
+
+    if (travel_date === null || travel_date.length === 0){
+        clearFlightDataDisplay()
+        return;
+    }
+
     let originAirportCode = getSelectedOption(select_origin_airports);
     let destAirportCode   = getSelectedOption(select_dest_airports);
-    let travel_date = encodeURI(d3.event.target.value);
+    travel_date = encodeURI(travel_date);
     let url = "/get_flight_predict_data?origin_airport_code=[0]&dest_airport_code=[1]&travel_date&travel_date=[3]";
     let urlParamValues = [originAirportCode, destAirportCode, travel_date];
     
