@@ -1,5 +1,6 @@
 Flight_data_files/Jan_2019_ontime.csv
 Flight_data_files/Jan_2020_ontime.csv
+Dashboard/FlightDelayPredictorConfig.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

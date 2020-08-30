@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Delay Predictor</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="static/css/FlightDelayPredictor.css">
+</head>
+<body class="bg-dark">
+    <br/>
+	<div class="wrapper">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+                <div class="bg-dark border border-white rounded pl-5 pr-5 pb-1 pt-1 display-header display-title">
+                    <h3>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Flight Delays Predictor
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </h3>
+                </div>
+                <br/>
+                <img class="display-header" src="../static/images/heading.png" title="Flight Delay Predictor" height="255" width="665">
+                <br/>
+                <div class="display-header">
+                    Choose Travel Origin, Destination, Airline, and Travel Date
+                </div>
+                <div class="display-header">
+                    Disclaimer ...
+                </div>
+                <form>
+                    <div class="bg-dark">
+                        <label class="label-states" for="origin_states">Origin State</label>
+                        <select class="custom-select text-white bg-dark select-states" id="origin_states"></select>
+                        <label class="label-airports" for="origin_airports">Origin Airport</label>
+                        <select class="custom-select text-white bg-dark select-airports" id="origin_airports"></select>
+                    </div>
+                    <div class="bg-dark">
+                        <label class="label-states" for="dest_states">Destination State</label>
+                        <select class="custom-select text-white bg-dark select-states" id="dest_states"></select>
+                        <label class="label-airports" for="dest_aiports">Destination Airport</label>
+                        <select class="custom-select text-white bg-dark select-airports" id="dest_airports"></select>
+                    </div>
+                    <div class="bg-dark">
+                        <label for="dest_airlines" class="label-states">Airline</label>
+                        <select class="custom-select text-white bg-dark" id="dest_airlines"></select>
+                        <label for="dest_dates" id="label_dest_dates">Travel Date</label>
+                        <select class="custom-select text-white bg-dark" id="dest_dates"></select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="bg-dark" id="flight_data_display">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="flight-data-display-column">
+                                    <div class="flight-data-display-time">Legend</div>
+                                    <div class="show">
+                                        <div class="flight-data-display-legend-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>Cloudy % </span>
+                                        </div>
+                                        <div class="flight-data-display-legend-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>Precipitation inches</span>
+                                        </div>
+                                        <div class="flight-data-display-legend-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>Wind Speed mph</span>
+                                        </div>
+                                        <div class="flight-data-display-legend-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>Humidity %</span>
+                                        </div>
+                                        <div class="flight-data-display-legend-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>Visibility miles</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_0">
+                                    <div id="flight_data_display_panel_0_time" class="flight-data-display-time">5:00 AM</div>
+                                    <div id="flight_data_display_panel_0_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_0_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_0_on_time_cloudiness">0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_0_on_time_precipitation">0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_0_on_time_wind">0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_0_on_time_humidity">0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_0_on_time_visibility">0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_0_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_0_delayed_cloudiness">0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_0_delayed_precipitation">0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_0_delayed_wind">0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_0_delayed_humidity">0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_0_delayed_visibility">0</span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_1_time" class="flight-data-display-time">6:00 AM</div>
+                                    <div id="flight_data_display_panel_1_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_1_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_1_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_1_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_1_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_1_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_1_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_1_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_1_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_1_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_1_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_1_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_1_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_2_time" class="flight-data-display-time">7:00 AM</div>
+                                    <div id="flight_data_display_panel_2_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_2_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_2_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_2_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_2_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_2_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_2_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_2_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_2_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_2_delayed_precipitation">1</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_2_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_2_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_2_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_3_time" class="flight-data-display-time">8:00 AM</div>
+                                    <div id="flight_data_display_panel_3_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_3_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_3_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_3_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_3_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_3_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_3_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_3_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_3_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_3_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_3_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_3_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_3_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_4_time" class="flight-data-display-time">9:00 AM</div>
+                                    <div id="flight_data_display_panel_4_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_4_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_4_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_4_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_4_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_4_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_4_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_4_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_4_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_4_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_4_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_4_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_4_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_5_time" class="flight-data-display-time">10:00 AM</div>
+                                    <div id="flight_data_display_panel_5_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_5_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_5_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_5_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_5_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_5_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_5_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_5_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_5_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_5_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_5_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_5_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_5_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_6_time" class="flight-data-display-time">11:00 AM</div>
+                                    <div id="flight_data_display_panel_6_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_6_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_6_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_6_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_6_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_6_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_6_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_6_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_6_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_6_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_6_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_6_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_6_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_7_time" class="flight-data-display-time">12:00 PM</div>
+                                    <div id="flight_data_display_panel_7_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_7_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_7_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_7_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_7_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_7_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_7_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_7_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_7_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_7_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_7_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_7_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_7_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_8_time" class="flight-data-display-time">1:00 PM</div>
+                                    <div id="flight_data_display_panel_8_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_8_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_8_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_8_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_8_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_8_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_8_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_8_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_8_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_8_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_8_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_8_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_8_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_9_time" class="flight-data-display-time">2:00 PM</div>
+                                    <div id="flight_data_display_panel_9_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_9_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_9_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_9_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_9_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_9_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_9_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_9_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_9_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_9_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_9_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_9_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_9_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_10_time" class="flight-data-display-time">3:00 PM</div>
+                                    <div id="flight_data_display_panel_10_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_10_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_10_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_10_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_10_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_10_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_10_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_10_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_10_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_10_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_10_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_10_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_10_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_11_time" class="flight-data-display-time">4:00 PM</div>
+                                    <div id="flight_data_display_panel_11_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_11_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_11_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_11_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_11_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_11_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_11_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_11_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_11_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_11_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_11_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_11_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_11_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_12_time" class="flight-data-display-time">5:00 PM</div>
+                                    <div id="flight_data_display_panel_12_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_12_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_12_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_12_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_12_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_12_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_12_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_12_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_12_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_12_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_12_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_12_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_12_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_13_time" class="flight-data-display-time">6:00 PM</div>
+                                    <div id="flight_data_display_panel_13_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_13_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_13_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_13_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_13_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_13_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_13_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_13_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_13_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_13_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_13_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_13_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_13_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>                               
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_14_time" class="flight-data-display-time">7:00 PM</div>
+                                    <div id="flight_data_display_panel_14_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_14_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_14_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_14_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_14_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_14_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_14_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_14_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_14_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_14_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_14_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_14_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_14_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="flight-data-display-column" id="flight_data_display_panel_1">
+                                    <div id="flight_data_display_panel_15_time" class="flight-data-display-time">8:00 PM</div>
+                                    <div id="flight_data_display_panel_15_blank" class="show">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_grey.png" title="Cloudiness %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_grey.png" title="Precipitation inches">
+                                            <span>0</span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_grey.png" title="Wind Speed mph">
+                                            <span>0</span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_grey.png" title="Humidity %">
+                                            <span>0</span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_grey.png" title="Visibility miles" height="" width="25">
+                                            <span>0</span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_15_on_time" class="flight-predict-on-time hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_green.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_15_on_time_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_green.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_15_on_time_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_green.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_15_on_time_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_green.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_15_on_time_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_green.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_15_on_time_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                    <div id="flight_data_display_panel_15_delayed" class="flight-predict-delay hide">
+                                        <div class="flight-data-display-value flight-data-display-value-first" >
+                                            <img src="/static/images/cloud_red.png" title="Cloudiness %">
+                                            <span id="flight_data_display_panel_15_delayed_cloudiness"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/precipitation_red.png" title="Precipitation inches">
+                                            <span id="flight_data_display_panel_15_delayed_precipitation"></span> inches
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/wind_red.png" title="Wind Speed mph">
+                                            <span id="flight_data_display_panel_15_delayed_wind"></span> mph
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/humidity_red.png" title="Humidity %">
+                                            <span id="flight_data_display_panel_15_delayed_humidity"></span> %
+                                        </div>
+                                        <div class="flight-data-display-value">
+                                            <img src="/static/images/visibility_red.png" title="Visibility miles" height="" width="25">
+                                            <span id="flight_data_display_panel_15_delayed_visibility"></span>  miles
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script id="jscript-file-app" src="/static/js/FlightDataDisplay.js"></script>
+    <script id="jscript-file-app" src="/static/js/FlightDelayPredictor.js"></script>
+</body>
+</html>
