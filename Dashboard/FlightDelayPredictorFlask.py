@@ -89,6 +89,7 @@ def get_flight_predict_data():
 
 def convert_to_JSON(list):
    
+
    if log_output == True:
       print(list)
 

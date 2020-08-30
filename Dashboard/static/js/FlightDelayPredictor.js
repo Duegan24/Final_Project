@@ -40,7 +40,7 @@ function deleteSelectOptions(selectId){
 
 let selectCtrlIdsCascadeArray = ["origin_states", "origin_airports", "dest_states", "dest_airports", "dest_airlines", "dest_dates"];
 
-function deleteCascadeSelectsOptions(selectPopulateId){
+function clearDisplayCascade(selectPopulateId){
 
     clearNextSelectId = false;
 
@@ -62,36 +62,14 @@ function deleteCascadeSelectsOptions(selectPopulateId){
      clearFlightDataDisplay();
  }
 
+let flightDataDisplay = new FlightDataDisplay(16, "flight_data_display_panel");
+
 function populateFlightDataDisplay(flightData){
-    let cellIdTemplate = "#flight_delay_col_";
-    let index = 0;
-    let d3TableCell;
-
-    flightData.forEach((value) => {
-        
-        cellId = cellIdTemplate + index;
-        d3TableCell = d3.select(cellId)
-
-        d3TableCell.attr("class", null);
-
-        if (value === 0) {
-            d3TableCell.classed("flight-predict-ontime", true);
-        }
-        else {
-            d3TableCell.classed("flight-predict-delay", true);
-        }
-
-        index++
-    });
+    flightDataDisplay.updateDisplay(flightData)
 }
 
 function clearFlightDataDisplay(){
-    let cellIdTemplate = "#flight_delay_col_";
-    let index = 0;
-
-    for(index = 0; index < 32; index++){
-        d3.select(cellIdTemplate + index).attr("class", null);
-    }
+    flightDataDisplay.clear();
 }
 
 
@@ -126,7 +104,7 @@ function getDataAsync(url, urlParamValues, callbackFunction){
 //*****************************************************
 
 function onChangePopulateSelectCtrl(selectCtrlId, url, urlParamValues){
-    deleteCascadeSelectsOptions(selectCtrlId);
+    clearDisplayCascade(selectCtrlId);
     getDataAsync(url, urlParamValues,(dataArray) => {
         populateSelectOptions(selectCtrlId, dataArray);
     });
@@ -165,7 +143,7 @@ select_dest_airports.on("change", function(){
 let select_dest_airlines = d3.select("#dest_airlines");
 select_dest_airlines.on("change", function(){
 
-    deleteCascadeSelectsOptions("dest_dates");
+    clearDisplayCascade("dest_dates");
      
     if (d3.event.target.value === "" || d3.event.target.value === null){
         return;
@@ -179,7 +157,7 @@ select_dest_airlines.on("change", function(){
             date = "01/0" + index + "/2021";
         }
         else {
-            date = "01/0" + index + "/2021";
+            date = "01/" + index + "/2021";
         }
         dataArray[index] = [date,date];
     }
