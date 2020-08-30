@@ -157,7 +157,7 @@ select_dest_airlines.on("change", function(){
             date = "01/0" + index + "/2021";
         }
         else {
-            date = "01/0" + index + "/2021";
+            date = "01/" + index + "/2021";
         }
         dataArray[index] = [date,date];
     }
