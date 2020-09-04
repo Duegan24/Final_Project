@@ -87,3 +87,6 @@ FROM flight_data
 FULL JOIN	airlines ON flight_data.OP_CARRIER_AIRLINE_ID = airlines.op_carrier_airline_id;
 
 SELECT * FROM full_flight_data
+
+ALTER TABLE full_flight_data
+RENAME TO full_flight_2019
