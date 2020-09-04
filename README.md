@@ -94,6 +94,11 @@ The primary method project communication is through a Slack group direct message
 |flight_delay_percent_plot.png|data_charts_table|readme bar chart of % flight delays 2011-19|
 |flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
 
+### Presentation Slides
+The presentation that outlines the steps performed in this project is available on Google Slides and can be found by clicking on the below link:
+
+[Final Project Presentation](https://docs.google.com/presentation/d/1bXmhqu5OPAXBdvMHO7NC--qenqy4zSeBRWaiZxK17_A/edit?usp=sharing)
+
 ### References
 
 [[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*

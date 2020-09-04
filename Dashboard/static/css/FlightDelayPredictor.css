@@ -1,0 +1,124 @@
+body {
+    color: #f7f7f7;
+}
+
+.display-title {
+    width:665px;
+}
+
+.display-header {
+    margin-left:300px;
+}
+
+form div {
+    display:block;
+    align-content: center;
+    padding: 10px;
+    font-size: medium;
+    width:1000px;
+}
+
+.label-states {
+    width: 355px;
+    text-align: right;
+}
+
+.select-states {
+    width: 125px;
+}
+
+.label-airports {
+    width: 150px;
+    text-align: right;
+}
+
+.select-airports {
+    width: 325px;
+}
+
+#dest_airlines {
+    width: 230px;
+}
+
+#dest_dates {
+    width: 150px;
+    text-align: right;
+}
+
+#label_dest_dates {
+    width: 100px;
+    text-align: right;
+}
+
+#flight_data_display{
+    width:1430px;
+    margin-left:50px;
+}
+
+.flight-data-display-legend {
+    border-top:2px solid white;
+    border-left:2px solid white;
+    border-bottom:2px solid #666666;
+    border-right:2px solid #666666;
+    padding-right:2px;
+}
+
+.flight-data-display-legend-value {
+    padding-left:2px;
+    font-size:x-small;
+    background-color: inherit;
+    width:112px;
+}
+
+.flight-data-display-column {
+    border-top:2px solid white;
+    border-left:2px solid white;
+    border-bottom:2px solid #666666;
+    border-right:2px solid #666666;
+    padding-right:2px;
+}
+
+.flight-data-display-column img {
+    height:20px;
+    width:20px;
+} 
+
+.flight-data-display-time {
+    font-size:small;
+    text-align:center;
+    border-bottom: 2px solid #666666;
+}
+
+.flight-data-display-value-first {
+    border-top: 2px solid white;
+}
+
+.flight-data-display-value {
+    padding-left:2px;
+    font-size:x-small;
+    background-color: inherit;
+}
+
+.flight-data-display-value span {
+    width:15px;
+    display:inline-block;
+    text-align:right;
+}
+
+.flight-predict-delay {
+    background-color: red;
+    color: yellow;
+}
+
+.flight-predict-on-time {
+    background-color: green;
+}
+
+
+.hide {
+    display:none;
+}
+
+.show {
+    display:inline;
+}
