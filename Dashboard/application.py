@@ -1,3 +1,4 @@
+
 import sys
 from flask import Flask, render_template, request, jsonify
 from FlightDelayPredictor import FlightDelayPredictor
@@ -9,15 +10,15 @@ for param in sys.argv:
       log_output = False
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 predictor = FlightDelayPredictor()
 
-@app.route("/")
+@application.route("/")
 def flight_delay_predictor():
    return render_template("FlightDelayPredictor.html")
 
-@app.route("/get_select_opts_origin_states")
+@application.route("/get_select_opts_origin_states")
 def get_select_opt_origin_states():
 
    select_option_list = predictor.get_origin_states()
@@ -29,7 +30,7 @@ def get_select_opt_origin_states():
    return convert_to_JSON(select_option_list)
 
 
-@app.route("/get_select_opts_origin_airports")
+@application.route("/get_select_opts_origin_airports")
 def get_origin_state_airports():
 
    origin_state = request.args.get("origin_state")
@@ -40,7 +41,7 @@ def get_origin_state_airports():
 
    return convert_to_JSON(select_option_list)
 
-@app.route("/get_select_opts_dest_states")
+@application.route("/get_select_opts_dest_states")
 def get_dest_states():
 
    origin_airport_code = request.args.get("origin_airport_code")
@@ -52,7 +53,7 @@ def get_dest_states():
 
    return convert_to_JSON(select_option_list)
 
-@app.route("/get_select_opts_dest_airports")
+@application.route("/get_select_opts_dest_airports")
 def get_dest_state_airports():
 
    origin_airport_code = request.args.get("origin_airport_code")
@@ -64,7 +65,7 @@ def get_dest_state_airports():
 
    return convert_to_JSON(select_option_list)
 
-@app.route("/get_select_opts_dest_airlines")
+@application.route("/get_select_opts_dest_airlines")
 def get_dest_flight_info():
 
    origin_airport_code = request.args.get("origin_airport_code")
@@ -76,7 +77,7 @@ def get_dest_flight_info():
 
    return convert_to_JSON(select_option_list)
 
-@app.route("/get_flight_predict_data")
+@application.route("/get_flight_predict_data")
 def get_flight_predict_data():
 
    origin_airport_code = request.args.get("origin_airport_code")
@@ -105,4 +106,4 @@ def convert_to_opt_name_value_list(singleList):
     return [(singleList[i][0], singleList[i][0]) for i in range(0, len(singleList))] 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)
