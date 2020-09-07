@@ -1,9 +1,3 @@
-Dashboard/__pycache__/*
-Dashboard/virt/*
-Dashboard/.ebignore
-Dashboard/FlightDelayPredictorConfig.py
-
-
 config.py
 
 # Byte-compiled / optimized / DLL files
