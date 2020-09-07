@@ -1,0 +1,334 @@
+Airport Code,City,State
+ADK,Adak Island,AK
+ANC,Anchorage,AK
+BRW,Barrow,AK
+BET,Bethel,AK
+CDV,Cordova,AK
+FAI,Fairbanks,AK
+JNU,Juneau,AK
+KTN,Ketchikan,AK
+ADQ,Kodiak,AK
+OTZ,Kotzebue,AK
+OME,Nome,AK
+PSG,Petersburg,AK
+SCC,Prudhoe Bay/Deadhorse,AK
+SIT,Sitka,AK
+WRG,Wrangell,AK
+YAK,Yakutat,AK
+BHM,Birmingham,AL
+DHN,Dothan,AL
+HSV,Huntsville,AL
+MOB,Mobile,AL
+MGM,Montgomery,AL
+XNA,Fayetteville,AR
+FSM,Fort Smith,AR
+LIT,Little Rock,AR
+TXK,Texarkana,AR
+FLG,Flagstaff,AZ
+PHX,Phoenix,AZ
+PRC,Prescott,AZ
+TUS,Tucson,AZ
+YUM,Yuma,AZ
+PPG,Pago Pago,American Samoa
+BFL,Bakersfield,CA
+BUR,Burbank,CA
+MRY,Carmel/Monterey,CA
+ACV,Eureka/Arcata,CA
+FAT,Fresno,CA
+LGB,Long Beach,CA
+LAX,Los Angeles,CA
+OAK,Oakland,CA
+ONT,Ontario,CA
+SNA,Orange County/Santa Ana,CA
+PSP,Palm Springs,CA
+RDD,Redding,CA
+SMF,Sacramento,CA
+SAN,San Diego,CA
+SFO,San Francisco,CA
+SJC,San Jose,CA
+SBP,San Luis Obispo,CA
+SBA,Santa Barbara,CA
+SMX,Santa Maria,CA
+STS,Santa Rosa,CA
+SCK,Stockton,CA
+ASE,Aspen,CO
+COS,Colorado Springs,CO
+DEN,Denver,CO
+DRO,Durango,CO
+GJT,Grand Junction,CO
+GUC,Gunnison,CO
+HDN,Hayden,CO
+MTJ,Montrose,CO
+PUB,Pueblo,CO
+EGE,Vail,CO
+BDL,Hartford/Windsor Locks,CT
+HVN,New Haven,CT
+IAD,Washington - Dulles,DC
+DCA,Washington - Reagan National,DC
+PIE,Clearwater/St Petersburg,FL
+DAB,Daytona Beach,FL
+FLL,Fort Lauderdale,FL
+RSW,Fort Myers,FL
+VPS,Fort Walton Beach/Valparaiso,FL
+GNV,Gainesville,FL
+JAX,Jacksonville,FL
+EYW,Key West,FL
+MLB,Melbourne,FL
+MIA,Miami,FL
+MCO,Orlando,FL
+PNS,Pensacola,FL
+SRQ,Sarasota,FL
+TLH,Tallahassee,FL
+TPA,Tampa,FL
+PBI,West Palm Beach,FL
+ATL,Atlanta,GA
+AGS,Augusta,GA
+BQK,Brunswick,GA
+CSG,Columbus,GA
+SAV,Savannah,GA
+VLD,Valdosta,GA
+GUM,Guam,Guam
+ITO,Hilo - Island of Hawaii,HI
+HNL,Honolulu - Island of Oahu,HI
+OGG,Kahului- Island of Maui,HI
+KOA,Kona - Island of Hawaii,HI
+LIH,Lihue - Island of Kaui,HI
+CID,Cedar Rapids,IA
+DSM,Des Moines,IA
+DBQ,Dubuque,IA
+SUX,Sioux City,IA
+ALO,Waterloo,IA
+BOI,Boise,ID
+SUN,Hailey/Sun Valley,ID
+IDA,Idaho Falls,ID
+LWS,Lewiston,ID
+PIH,Pocatello,ID
+TWF,Twin Falls,ID
+BLV,Belleville,IL
+BMI,Bloomington,IL
+CMI,Champaign/Urbana,IL
+MDW,Chicago - Midway,IL
+ORD,Chicago - O'Hare,IL
+MLI,Moline,IL
+PIA,Peoria,IL
+UIN,Quincy,IL
+RFD,Rockford,IL
+SPI,Springfield,IL
+EVV,Evansville,IN
+FWA,Fort Wayne,IN
+IND,Indianapolis,IN
+SBN,South Bend,IN
+GCK,Garden City,KS
+HYS,Hays,KS
+LBL,Liberal,KS
+MHK,Manhattan,KS
+SLN,Salina,KS
+ICT,Wichita,KS
+HTS,Ashland,KY
+LEX,Lexington,KY
+SDF,Louisville,KY
+OWB,Owensboro,KY
+PAH,Paducah,KY
+AEX,Alexandria,LA
+BTR,Baton Rouge,LA
+LFT,Lafayette,LA
+LCH,Lake Charles,LA
+MLU,Monroe,LA
+MSY,New Orleans,LA
+SHV,Shreveport,LA
+BOS,Boston,MA
+ORH,Worcester,MA
+BWI,Baltimore,MD
+HGR,Hagerstown,MD
+BGR,Bangor,ME
+PWM,Portland,ME
+APN,Alpena,MI
+MBS,Bay City/Midland/Saginaw,MI
+DTW,Detroit,MI
+ESC,Escanaba,MI
+FNT,Flint,MI
+GRR,Grand Rapids,MI
+CMX,Hancock,MI
+IMT,Iron Mountain,MI
+AZO,Kalamazoo,MI
+LAN,Lansing,MI
+MQT,Marquette,MI
+MKG,Muskegon,MI
+PLN,Pellston,MI
+CIU,Sault Ste Marie,MI
+TVC,Traverse City,MI
+BJI,Bemidji,MN
+BRD,Brainerd,MN
+HIB,Chisholm/Hibbing,MN
+DLH,Duluth,MN
+INL,International Falls,MN
+MSP,Minneapolis,MN
+RST,Rochester,MN
+STC,Saint Cloud,MN
+CGI,Cape Girardeau,MO
+COU,Columbia,MO
+JLN,Joplin,MO
+MCI,Kansas City,MO
+STL,Saint Louis,MO
+SGF,Springfield,MO
+GPT,Biloxi/Gulfport,MS
+GTR,Columbus,MS
+JAN,Jackson,MS
+PIB,Laurel,MS
+MEI,Meridian,MS
+BIL,Billings,MT
+BZN,Bozeman,MT
+BTM,Butte,MT
+GTF,Great Falls,MT
+HLN,Helena,MT
+MSO,Missoula,MT
+AVL,Asheville/Hendersonville,NC
+CLT,Charlotte,NC
+FAY,Fayetteville,NC
+GSO,Greensboro/High Point,NC
+OAJ,Jacksonville,NC
+RDU,Raleigh/Durham,NC
+ILM,Wilmington,NC
+BIS,Bismarck,ND
+DVL,Devil's Lake,ND
+FAR,Fargo,ND
+GFK,Grand Forks,ND
+JMS,Jamestown,ND
+MOT,Minot,ND
+ISN,Williston,ND
+GRI,Grand Island,NE
+EAR,Kearney,NE
+LNK,Lincoln,NE
+LBF,North Platte,NE
+OMA,Omaha,NE
+BFF,Scottsbluff,NE
+MHT,Manchester,NH
+PSM,Portsmouth,NH
+EWR,Newark,NJ
+TTN,Trenton/Mercer,NJ
+ABQ,Albuquerque,NM
+ROW,Roswell,NM
+SAF,Santa Fe,NM
+EKO,Elko,NV
+LAS,Las Vegas,NV
+RNO,Reno,NV
+ALB,Albany,NY
+BGM,Binghamton/Endicott/Johnson City,NY
+BUF,Buffalo,NY
+ELM,Elmira,NY
+ISP,Islip,NY
+ITH,Ithaca,NY
+JFK,New York - Kennedy,NY
+LGA,New York - La Guardia,NY
+SWF,Newburgh/Stewart Field,NY
+IAG,Niagara Falls,NY
+OGS,Ogdensburg,NY
+ROC,Rochester,NY
+SYR,Syracuse,NY
+ART,Watertown,NY
+HPN,Westchester County,NY
+SPN,Saipan,Northern Mariana Islands
+CAK,Akron/Canton,OH
+CVG,Cincinnati,OH
+CLE,Cleveland,OH
+CMH,Columbus,OH
+DAY,Dayton,OH
+TOL,Toledo,OH
+LAW,Lawton,OK
+OKC,Oklahoma City,OK
+TUL,Tulsa,OK
+XWA,Watford,ON
+EUG,Eugene,OR
+MFR,Medford,OR
+OTH,North Bend,OR
+PDX,Portland,OR
+RDM,Redmond,OR
+ABE,Allentown/Bethlehem/Easton,PA
+ERI,Erie,PA
+MDT,Harrisburg,PA
+LBE,Latrobe,PA
+PHL,Philadelphia,PA
+PIT,Pittsburgh,PA
+AVP,Scranton/Wilkes Barre,PA
+SCE,State College/University Park,PA
+BQN,Aguadilla,Puerto Rico
+PSE,Ponce,Puerto Rico
+SJU,San Juan,Puerto Rico
+PVD,Providence,RI
+CHS,Charleston,SC
+CAE,Columbia,SC
+GSP,Greenville/Spartanburg,SC
+HHH,Hilton Head,SC
+MYR,Myrtle Beach,SC
+ABR,Aberdeen,SD
+PIR,Pierre,SD
+RAP,Rapid City,SD
+FSD,Sioux Falls,SD
+ATY,Watertown,SD
+CHA,Chattanooga,TN
+TYS,Knoxville,TN
+MEM,Memphis,TN
+BNA,Nashville,TN
+ABI,Abilene,TX
+AMA,Amarillo,TX
+AUS,Austin,TX
+BPT,Beaumont/Port Arthur,TX
+BRO,Brownsville,TX
+CLL,College Station,TX
+CRP,Corpus Christi,TX
+DFW,Dallas/Fort Worth,TX
+DRT,Del Rio,TX
+ELP,El Paso,TX
+GGG,Gladewater/Kilgore/Longview,TX
+HRL,Harlingen,TX
+IAH,Houston - George Bush Intercontinental,TX
+HOU,Houston - Hobby,TX
+LRD,Laredo,TX
+LBB,Lubbock,TX
+MFE,Mcallen/Mission,TX
+MAF,Midland/Odessa,TX
+SJT,San Angelo,TX
+SAT,San Antonio,TX
+TYR,Tyler,TX
+ACT,Waco,TX
+SPS,Wichita Falls,TX
+STX,Saint Croix,U.S. Virgin Islands
+STT,Saint Thomas,U.S. Virgin Islands
+CDC,Cedar City,UT
+CNY,Moab,UT
+SGU,Saint George,UT
+SLC,Salt Lake City,UT
+VEL,Vernal,UT
+TRI,Bristol,VA
+CHO,Charlottesville,VA
+PHF,Hampton/Williamsburg,VA
+ORF,Norfolk,VA
+RIC,Richmond,VA
+ROA,Roanoke,VA
+SHD,Staunton,VA
+BTV,Burlington,VT
+BLI,Bellingham,WA
+PAE,Everett,WA
+PSC,Pasco,WA
+SEA,Seattle/Tacoma,WA
+GEG,Spokane,WA
+ATW,Appleton,WI
+EAU,Eau Claire,WI
+GRB,Green Bay,WI
+LSE,La Crosse,WI
+MSN,Madison,WI
+MKE,Milwaukee,WI
+RHI,Rhinelander,WI
+CWA,Stevens Point/Wausau,WI
+CRW,Charleston,WV
+CKB,Clarksburg,WV
+LWB,Lewisburg,WV
+CPR,Casper,WY
+CYS,Cheyenne,WY
+COD,Cody/Yellowstone,WY
+GCC,Gillette,WY
+JAC,Jackson Hole,WY
+LAR,Laramie,WY
+RIW,Riverton,WY
+RKS,Rock Springs,WY
+SHR,Sheridan,WY
