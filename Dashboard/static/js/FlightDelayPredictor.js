@@ -178,9 +178,10 @@ select_dest_dates.on("change", function(){
 
     let originAirportCode = getSelectedOption(select_origin_airports);
     let destAirportCode   = getSelectedOption(select_dest_airports);
+    let airline_id        = getSelectedOption(select_dest_airlines);
     travel_date = encodeURI(travel_date);
-    let url = "/get_flight_predict_data?origin_airport_code=[0]&dest_airport_code=[1]&travel_date&travel_date=[3]";
-    let urlParamValues = [originAirportCode, destAirportCode, travel_date];
+    let url = "/get_flight_predict_data?origin_airport_code=[0]&dest_airport_code=[1]&airline_id=[2]&travel_date=[3]";
+    let urlParamValues = [originAirportCode, destAirportCode, airline_id, travel_date];
     
     getDataAsync(url, urlParamValues, (dataArray) => {
         populateFlightDataDisplay(dataArray);

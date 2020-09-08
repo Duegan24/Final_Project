@@ -51,7 +51,7 @@ form div {
 }
 
 #flight_data_display{
-    width:1430px;
+    width:1455px;
     margin-left:50px;
 }
 
@@ -67,7 +67,7 @@ form div {
     padding-left:2px;
     font-size:x-small;
     background-color: inherit;
-    width:112px;
+    width:105px;
 }
 
 .flight-data-display-column {
@@ -100,7 +100,7 @@ form div {
 }
 
 .flight-data-display-value span {
-    width:15px;
+    width:25px;
     display:inline-block;
     text-align:right;
 }
