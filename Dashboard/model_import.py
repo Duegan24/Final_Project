@@ -5,18 +5,18 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder, LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 
+# Import Encoder Information for origin and destination
+le_origin = pickle.load(open('pickle_files/Origin_encoder.pkl', 'rb')) 
+le_dest = pickle.load(open('pickle_files/Dest_encoder.pkl', 'rb'))
+
+# load the scaler for all input columns
+scaler = pickle.load(open('pickle_files/scaler.pkl', 'rb'))
+
+# Load the model
+model_dt = pickle.load(open('pickle_files/model_dt.pkl', 'rb'))
+
 # Create Method that runs a singe set of user defined options through the model
 def flight_delay_model(op_carrier, origin, dest, windspeedKmph, precipMM):
-
-    # Import Encoder Information for origin and destination
-    le_origin = pickle.load(open('pickle_files/Origin_encoder.pkl', 'rb')) 
-    le_dest = pickle.load(open('pickle_files/Dest_encoder.pkl', 'rb'))
-
-    # load the scaler for all input columns
-    scaler = pickle.load(open('pickle_files/scaler.pkl', 'rb'))
-
-    # Load the model
-    model_dt = pickle.load(open('pickle_files/model_dt.pkl', 'rb'))
 
     # Setup input dataframe with what the model was trained with
     ## set column names

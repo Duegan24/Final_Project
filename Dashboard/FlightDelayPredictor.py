@@ -1,12 +1,13 @@
 from FlightDelayPredictorDS import FlightDelayPredictorDS
 from AirportWeather import AirportWeather
 from application_config import *
+from model_import import *
 
 class FlightDelayPredictor:
 
     def __init__(self):
         self.flightDataSource = FlightDelayPredictorDS(FlightDataConfig)
-        self.airportWeather = AirportWeather(AirportWeatherConfig)
+        self.airportWeatherDataSource = AirportWeather(AirportWeatherConfig)
 
     def get_origin_states(self):
 
@@ -28,12 +29,16 @@ class FlightDelayPredictor:
 
         return self.flightDataSource.get_dest_airlines(origin_airport_code, dest_airport_code)
 
-    def get_flight_predict_data(self, origin_airport_code, dest_airport_code, travel_date):
+    def get_flight_predict_data(self, origin_airport_code, dest_airport_code, airline_id, travel_date):
         
-        flight_predict_list = []
+        airport_hourly_weather_list = self.airportWeatherDataSource.get_airport_hourly_weather(origin_airport_code, travel_date)
+
+        df = flight_delay_model(airline_id, origin_airport_code, dest_airport_code, 20, .1)
+
+        #print(df)
+
+        flight_delay_predict_by_hours_list = []
         flight_hour_data_dict = {}
-        
-        import random
         
         index = 0
 
@@ -41,20 +46,20 @@ class FlightDelayPredictor:
 
             flight_hour_data_dict = {}
 
-            flight_hour_data_dict["status"] = random.randint(0,1)
+            flight_hour_data_dict["status"] = 0
 
-            flight_hour_data_dict["cloudiness"] = random.randint(0,100)
+            flight_hour_data_dict["cloudiness"] = airport_hourly_weather_list[index][0]
 
-            flight_hour_data_dict["precipitation"] = random.randint(0,20)
+            flight_hour_data_dict["precipitation"] = airport_hourly_weather_list[index][1]
 
-            flight_hour_data_dict["wind"] = random.randint(0,50)
+            flight_hour_data_dict["wind"] = airport_hourly_weather_list[index][2]
 
-            flight_hour_data_dict["humidity"] = random.randint(0,50)
+            flight_hour_data_dict["humidity"] = airport_hourly_weather_list[index][3]
 
-            flight_hour_data_dict["visibility"] = random.randint(0,25)
+            flight_hour_data_dict["visibility"] = airport_hourly_weather_list[index][4]
 
-            flight_predict_list.append(flight_hour_data_dict)
+            flight_delay_predict_by_hours_list.append(flight_hour_data_dict)
 
             index += 1
 
-        return flight_predict_list
+        return flight_delay_predict_by_hours_list

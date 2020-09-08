@@ -45,7 +45,7 @@ ORDER BY b.city
 # --------------------------------
     "sql_select_dest_airlines":
 """
-SELECT DISTINCT a.op_carrier_name, a.op_carrier_airline_id 
+SELECT DISTINCT a.op_carrier_name, a.op_unique_carrier 
 FROM   airlines a 
 INNER JOIN 
        airline_routes b 
@@ -64,16 +64,13 @@ AirportWeatherConfig = {
     "database":"flightsdata",
     "database_type":"postgresql",
 # --------------------------------
-    "sql_select_airport_weather":
+    "sql_select_airport_hourly_weather":
 """
-SELECT DISTINCT a.op_carrier_name, a.op_carrier_airline_id 
-FROM   airlines a 
-INNER JOIN 
-       airline_routes b 
-ON     a.op_carrier_airline_id = b.op_carrier_airline_id 
-WHERE  b.origin_code = '{origin_airport_code}' 
-AND    b.dest_code = '{dest_airport_code}' 
-ORDER BY op_carrier_name
+SELECT cloudcover, precipitation, windspeed, humidity, visibility
+FROM   airport_weather
+WHERE  code = '{airport_code}'
+AND    date = '{date}'
+ORDER BY HOUR
 """,
 
 }

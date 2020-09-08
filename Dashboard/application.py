@@ -82,9 +82,19 @@ def get_flight_predict_data():
 
    origin_airport_code = request.args.get("origin_airport_code")
    dest_airport_code   = request.args.get("dest_airport_code")
+   airline_id          = request.args.get("airline_id")
    travel_date         = request.args.get("travel_date")
 
-   flight_predict_data = predictor.get_flight_predict_data(origin_airport_code, dest_airport_code, travel_date)
+   flight_predict_data = predictor.get_flight_predict_data(origin_airport_code, dest_airport_code, airline_id, travel_date)
+
+   # Convert from metric to US units
+   for flight_predict_data_row in flight_predict_data:
+      
+      #convert to mph
+      flight_predict_data_row["wind"] = str(round(float(flight_predict_data_row["wind"]) * 0.62137119, 1))
+
+      #convert to inches
+      flight_predict_data_row["precipitation"] = str(round(float(flight_predict_data_row["precipitation"]) * 0.03937008, 3))
 
    return convert_to_JSON(flight_predict_data)
 
@@ -92,6 +102,8 @@ def convert_to_JSON(list):
    
 
    if log_output == True:
+
+      
       print(list)
 
    json = jsonify(list)

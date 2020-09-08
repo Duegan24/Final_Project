@@ -6,6 +6,6 @@ class AirportWeather:
         
         self.airportWeatherDataSource = AirportWeatherDS(datasourceConfig)
 
-    def get_airport_weather_data(self, airport_code, date):
+    def get_airport_hourly_weather(self, airport_code, date):
         
-        return self.airportWeatherDataSource.get_airport_weather(airport_code, date)
+        return self.airportWeatherDataSource.get_airport_hourly_weather(airport_code, date)
