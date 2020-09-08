@@ -1,29 +1,32 @@
-from FlightDelayPredictorDB import FlightDelayPredictorDB
+from FlightDelayPredictorDS import FlightDelayPredictorDS
+from AirportWeather import AirportWeather
+from application_config import *
 
 class FlightDelayPredictor:
 
     def __init__(self):
-        self.datasource = FlightDelayPredictorDB() #= create_engine('sqlite:///bookstore.db')
+        self.flightDataSource = FlightDelayPredictorDS(FlightDataConfig)
+        self.airportWeather = AirportWeather(AirportWeatherConfig)
 
     def get_origin_states(self):
 
-        return self.datasource.get_origin_states()
+        return self.flightDataSource.get_origin_states()
 
     def get_origin_airports(self, origin_state):
 
-        return self.datasource.get_origin_airports(origin_state)
+        return self.flightDataSource.get_origin_airports(origin_state)
 
     def get_dest_states(self, origin_airport_code):
    
-        return self.datasource.get_dest_states(origin_airport_code)
+        return self.flightDataSource.get_dest_states(origin_airport_code)
 
     def get_dest_state_airports(self, origin_airport_code, dest_state):
         
-        return self.datasource.get_dest_airports(origin_airport_code, dest_state)
+        return self.flightDataSource.get_dest_airports(origin_airport_code, dest_state)
 
     def get_dest_airlines(self, origin_airport_code, dest_airport_code):
 
-        return self.datasource.get_dest_airlines(origin_airport_code, dest_airport_code)
+        return self.flightDataSource.get_dest_airlines(origin_airport_code, dest_airport_code)
 
     def get_flight_predict_data(self, origin_airport_code, dest_airport_code, travel_date):
         

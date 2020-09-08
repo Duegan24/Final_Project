@@ -1,23 +1,3 @@
---***** Table: public.airports_total_flights *****
-
-CREATE TABLE public.airports_total_flights
-(
-    code character(3) COLLATE pg_catalog."default",
-    total_flights integer
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
-
-ALTER TABLE public.airports_total_flights
-    OWNER to postgres;
-
-CREATE INDEX fki_fk_code
-    ON public.airports_total_flights USING btree
-    (code COLLATE pg_catalog."default" ASC NULLS LAST)
-    TABLESPACE pg_default;
-
 --***** Table: public.airports *****
 
 CREATE TABLE public.airports
@@ -54,7 +34,7 @@ SELECT *
 FROM   airports
 WHERE  code NOT IN (SELECT code FROM airports_total_flights)
 
---***** Table: public.airports_origin_dest *****
+--***** Table: public.airports_routes *****
 
 CREATE TABLE public.airports_routes
 (
@@ -146,29 +126,58 @@ ALTER TABLE public.airlines
 	
 --***** Table: public.airline_routes *****
 
-CREATE TABLE public.airlines
+CREATE TABLE public.airline_routes
 (
     op_carrier_airline_id character varying(10) COLLATE pg_catalog."default" NOT NULL,
-    op_unique_carrier character(2) COLLATE pg_catalog."default" NOT NULL,
-    op_carrier_name character varying(30) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT airlines_pk_const_op_carrier_airline_id PRIMARY KEY (op_carrier_airline_id)
+    origin_code character(3) COLLATE pg_catalog."default" NOT NULL,
+    dest_code character(3) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT airline_routes_pk_const_airline_id_origin_dest_codes PRIMARY KEY (op_carrier_airline_id, origin_code, dest_code),
+    CONSTRAINT airline_routes_fk_const_dest_code FOREIGN KEY (dest_code)
+        REFERENCES public.airports (code) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT airline_routes_fk_const_op_carrier_airline_id FOREIGN KEY (op_carrier_airline_id)
+        REFERENCES public.airlines (op_carrier_airline_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT airline_routes_fk_const_origin_code FOREIGN KEY (origin_code)
+        REFERENCES public.airports (code) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
 )
 WITH (
     OIDS = FALSE
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public.airlines
+ALTER TABLE public.airline_routes
     OWNER to postgres;
 
-CREATE UNIQUE INDEX airline_clidx_op_carrier_airline_id
-    ON public.airlines USING btree
+CREATE INDEX airline_clidx_routes_origin_dest_codes
+    ON public.airline_routes USING btree
+    (origin_code COLLATE pg_catalog."default" ASC NULLS LAST, dest_code COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+ALTER TABLE public.airline_routes
+    CLUSTER ON airline_clidx_routes_origin_dest_codes;
+
+CREATE INDEX airline_routes_fki_dest_code
+    ON public.airline_routes USING btree
+    (dest_code COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+CREATE INDEX airline_routes_fki_op_carrier_airline_id
+    ON public.airline_routes USING btree
     (op_carrier_airline_id COLLATE pg_catalog."default" ASC NULLS LAST)
     TABLESPACE pg_default;
 
-ALTER TABLE public.airlines
-    CLUSTER ON airline_clidx_op_carrier_airline_id;
-
+CREATE INDEX airline_routes_fki_origin_code
+    ON public.airline_routes USING btree
+    (origin_code COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
 
 TRUNCATE TABLE public.airline_routes
 
