@@ -30,7 +30,7 @@ def flight_delay_model(op_carrier, origin, dest, windspeedKmph, precipMM):
     inputs_df = pd.DataFrame(columns = input_columns)
 
     ## Create set date to put into model
-    inputs_df['DEP_Hour'] = range(0, 24, 1)
+    inputs_df['DEP_Hour'] = range(4, 17, 1)
     inputs_df['origin'] = origin
     inputs_df['dest'] = dest
     inputs_df['windspeedKmph'] = windspeedKmph

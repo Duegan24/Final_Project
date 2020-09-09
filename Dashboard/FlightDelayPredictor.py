@@ -35,7 +35,7 @@ class FlightDelayPredictor:
 
         df = flight_delay_model(airline_id, origin_airport_code, dest_airport_code, 20, .1)
 
-        #print(df)
+        print(df)
 
         flight_delay_predict_by_hours_list = []
         flight_hour_data_dict = {}
