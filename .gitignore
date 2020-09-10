@@ -3,7 +3,6 @@ Dashboard/virt/*
 Dashboard/.ebignore
 Dashboard/DatabaseConfig.py
 
-
 config.py
 
 # Byte-compiled / optimized / DLL files
