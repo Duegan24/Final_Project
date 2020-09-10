@@ -1,7 +1,7 @@
-Flight_data_files/Jan_2019_ontime.csv
-Flight_data_files/Jan_2020_ontime.csv
-Dashboard/FlightDelayPredictorConfig.py
-virt
+Dashboard/__pycache__/*
+Dashboard/virt/*
+Dashboard/.ebignore
+Dashboard/DatabaseConfig.py
 
 config.py
 
