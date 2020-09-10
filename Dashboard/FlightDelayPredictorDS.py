@@ -5,6 +5,8 @@ class FlightDelayPredictorDS(DatabaseDataSource):
     def __init__(self, datasourceConfig):
 
         DatabaseDataSource.__init__(self, datasourceConfig)
+
+        # Initialize select query string properties
         self.sql_select_orig_states   = datasourceConfig["sql_select_orig_states"]
         self.sql_select_orig_airports = datasourceConfig["sql_select_orig_airports"]
         self.sql_select_dest_states   = datasourceConfig["sql_select_dest_states"]

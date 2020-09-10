@@ -1,7 +1,7 @@
 Dashboard/__pycache__/*
 Dashboard/virt/*
 Dashboard/.ebignore
-Dashboard/FlightDelayPredictorConfig.py
+Dashboard/DatabaseConfig.py
 
 
 config.py

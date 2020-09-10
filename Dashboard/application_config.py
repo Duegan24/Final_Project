@@ -1,8 +1,11 @@
+from DatabaseConfig import *
+
+# Configuration for FlightDelayPredictor object
 FlightDataConfig = {
-    "host":"flightsdata.cxtoxxxge4vx.us-east-2.rds.amazonaws.com",
+    "host":host,
     "port":"5432", 
-    "user":"postgres", 
-    "password":"faB17&rigeme", 
+    "user":user, 
+    "password":password, 
     "database":"flightsdata",
     "database_type":"postgresql",
 # --------------------------------
@@ -56,11 +59,20 @@ ORDER BY op_carrier_name
 """,
 }
 
+# Configuration for FlightDelayPredictor machine learning model
+ModelConfig = {
+    "origin_encode_file":"pickle_files/Origin_encoder.pkl",
+    "dest_encode_file":"pickle_files/Dest_encoder.pkl",
+    "scaler_file":"pickle_files/scaler.pkl",
+    "model_file":"pickle_files/model_dt.pkl"
+}
+
+# Configuration for airport weather object
 AirportWeatherConfig = {
-    "host":"flightsdata.cxtoxxxge4vx.us-east-2.rds.amazonaws.com",
+    "host":host,
     "port":"5432", 
-    "user":"postgres", 
-    "password":"faB17&rigeme", 
+    "user":user, 
+    "password":password, 
     "database":"flightsdata",
     "database_type":"postgresql",
 # --------------------------------
