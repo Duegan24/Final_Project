@@ -1,4 +1,4 @@
--- Create 3 tables for weather data
+-- Create 2018 weather table
 CREATE TABLE weather_2018 (
 	location CHAR(40),
 	date_time DATE,
@@ -9,6 +9,7 @@ CREATE TABLE weather_2018 (
 	humidity int
 );
 
+-- Create 2019 weather table
 CREATE TABLE weather_2019 (
 	location CHAR(40),
 	date_time DATE,
@@ -19,6 +20,7 @@ CREATE TABLE weather_2019 (
 	humidity int
 );
 
+-- Create 2020 weather table
 CREATE TABLE weather_2020 (
 	location CHAR(40),
 	date_time DATE,
@@ -32,7 +34,7 @@ CREATE TABLE weather_2020 (
 -- Drop flight_data to import the new flight data
 DROP TABLE flight_data
 
--- Create a new flight data table
+-- Create a new flight data table for 2019 data
 CREATE TABLE flight_data_2019(
 	ORIGIN CHAR(3),
 	ORIGIN_CITY CHAR(40),
@@ -58,7 +60,7 @@ CREATE TABLE flight_data_2019(
 	DEST_CITY CHAR(40)
 );
 
--- Create a new flight data table
+-- Create a new flight data table for 2020 data
 CREATE TABLE flight_data_2020(
 	ORIGIN CHAR(3),
 	ORIGIN_CITY CHAR(40),
@@ -140,8 +142,6 @@ INTO full_flight_data_2020
 FROM flight_data_2020
 FULL JOIN	airlines ON flight_data_2020.OP_CARRIER_AIRLINE_ID = airlines.op_carrier_airline_id;
 
-
-SELECT * FROM full_flight_data
 
 ALTER TABLE full_flight_data
 RENAME TO full_flight_2019
