@@ -142,6 +142,6 @@ INTO full_flight_data_2020
 FROM flight_data_2020
 FULL JOIN	airlines ON flight_data_2020.OP_CARRIER_AIRLINE_ID = airlines.op_carrier_airline_id;
 
-
+-- Rename thne full flight data table
 ALTER TABLE full_flight_data
 RENAME TO full_flight_2019
