@@ -102,6 +102,104 @@ The presentation that outlines the steps performed in this project is available 
   
 [Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
 
+#### Description
+
+The dashboard is a single page web application. The dashboard user interface used javascript d2.json() request to get flight data from the webserver that uses the Flask web application framework. The dashboard web application has three layers of components
+
+* Presentation
+* Application Logic 
+* Data Source
+
+Presentation layer components respond to user input from the dashboard and request data from the flight delay prediction system. The presentation layer components either make data requests for flight selection data such as selected origin state airports or request flight delay prediction data from the machine learning model. 
+
+The logic layer components receive requests from presentation layer components for either flight selection information or flight delay prediction information. Flight selection information request are processed by calling the data source layer, receiving the data from the from this layer, formatting the the data, and returning it to the presentation layer component. Flight delay prediction information requests are processed inputting the delay prediction parameters from the presentation layer component into the machine learning model and returning the delay prediction information to the dashboard presentation layer component. 
+
+The data source layer component receives flight or weather data requests from an logic level component, retrieves requested information from the data source, and returns data to the calling  logic level component.
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Layer</th>
+            <th>Component Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Presentation</td>
+            <td>Dashboard/templates/FlightDelayPredictor.html</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/static/js/FlightDelayPredictor.js</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/static/js/FlightDataDisplay.js</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/static/css/FlightDelayPredictor.css</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/application.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/application_config.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/DatabaseConfig.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Logic</td>
+            <td>Dashboard/FlightDelayPredictor.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/FlightDelayPredictorModel.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/Dest_encoder.pkl</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/Origin_encoder.pkl</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/model_dt.pkl</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/scaler.pkl</td>
+        </tr>        
+        <tr>
+            <td></td>
+            <td>Dashboard/AirportWeather.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Data Source</td>
+            <td>Dashboard/FlightDelayPredictorDS.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/AirportWeatherDS.py</td>
+        </tr>
+    </tbody>
+</table>
+    
 
 ### Database
 
