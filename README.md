@@ -102,20 +102,19 @@ The presentation that outlines the steps performed in this project is available 
   
 [Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
 
-#### Description
+#### Technical Design
 
-The dashboard is a single page web application. The dashboard user interface used javascript d2.json() request to get flight data from the webserver that uses the Flask web application framework. The dashboard web application has three layers of components
+The dashboard is a single page web application. The dashboard user interface uses JavaScript d2.json() requests to request and receive flight selection and flight delay prediction information from the webserver. The webserver used the Flask web application framework. The dashboard web application has three layers of components
 
-* Presentation
-* Application Logic 
-* Data Source
+* Presentation Layer Components
+* Logic Layer Components
+* Data Source Layer Components
 
-Presentation layer components respond to user input from the dashboard and request data from the flight delay prediction system. The presentation layer components either make data requests for flight selection data such as selected origin state airports or request flight delay prediction data from the machine learning model. 
+Presentation layer components respond to user input from the dashboard and request data from the flight delay prediction system. The presentation layer components either make data requests for flight selection data such as origin state airports or requests flight delay prediction data from the machine learning model. 
 
-The logic layer components receive requests from presentation layer components for either flight selection information or flight delay prediction information. Flight selection information request are processed by calling the data source layer, receiving the data from the from this layer, formatting the the data, and returning it to the presentation layer component. Flight delay prediction information requests are processed inputting the delay prediction parameters from the presentation layer component into the machine learning model and returning the delay prediction information to the dashboard presentation layer component. 
+The logic layer components receive requests from presentation layer for either flight selection information or flight delay prediction information. Flight selection information request are processed by calling the data source layer to get the requested data. Flight delay prediction information requests are processed by inputting the delay prediction parameters from the dashboard into the machine learning model and returning the delay prediction data to the dashboard presentation layer. 
 
-The data source layer component receives flight or weather data requests from an logic level component, retrieves requested information from the data source, and returns data to the calling  logic level component.
-
+The data source layer component receives flight or weather data requests from a logic level component, retrieves requested information from the data source, and returns data to the calling logic level component.
 
 <table>
     <thead>
