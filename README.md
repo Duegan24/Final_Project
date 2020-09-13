@@ -8,15 +8,15 @@ Business air travel is essential part of managing a company successfully even wi
 Because business air travel is an essential part managing a business successfully and has a significant positive effect on economic growth, airline flight delays, in turn, result in lost business productivity and a reduction of the economy's GDP. Research by the FAA found that “inefficiency in the air transportation sector increases the cost of doing business for other sectors, making the associated business less productive.” [[6]](#references) In 2018, the cost of flight delays including reduced GDP and increased airline operating expenses was $28 billion dollars. [[7]](#references) Given these facts on the negative effects of flight delays, just how often will a business traveler encounter a flight delay? Data on flight delays from Bureau of Transportation Statistics show that between 2011 and 2019 on average 18.33% of all flights were delayed. If the percentage of cancelled flights are also included, the cumulative data shows that on average 20% of flights fail to make their destination on time or at all. [[8]](#references) This mean that a business traveler will experience a flight delay every one out of five flights.
 
 <p align="center">
-  <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_delayed_canceled_table.png" title="Flight Delay Canceled Data Table" alt="Flight Delay Canceled Data Table" height="300" width="600">
+  <img align="center" src="data_charts_tables/flight_delayed_canceled_table.png" title="Flight Delay Canceled Data Table" alt="Flight Delay Canceled Data Table" height="300" width="600">
 </p>
 
 <p align="center">
-  <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_delay_percent_plot.png" title="Flight Delay Bar Chart" alt="Flight Delay Bar Chart" height="200" width="300">
+  <img align="center" src="data_charts_tables/flight_delay_percent_plot.png" title="Flight Delay Bar Chart" alt="Flight Delay Bar Chart" height="200" width="300">
 </p>
 
 <p align="center">
-  <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
+  <img align="center" src="data_charts_tables/flight_canceled_percent_plot.png" title="Flight Cenceled Bar Chart" alt="Flight Canceled Bar Chart" height="250" width="300">
   <br/>
 </p>
 
@@ -99,12 +99,19 @@ The presentation that outlines the steps performed in this project is available 
 
 [Final Project Presentation](https://docs.google.com/presentation/d/1HSP1glrp1soaLvSLndOQSudrSzysDYgPzm5htyLGAaI/edit#slide=id.p)
 
-## Dashboard
+### Dashboard
 
-  <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/dashboard.gif" title="Flight Delay Dashboard">
+<img align="center" src="data_charts_tables/dashboard.gif" title="Flight Delay Dashboard">
   
-  [Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
+[Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
 
+### Dashboard Database
+
+<img align="center" src="Database/dashboard.gif" title="Dashboard Database ERD">
+
+[Database Create SQL](Database/database.create.sql)
+
+[Database Dashboard Select SQL](Database/database.selects.sql)
 
 ### References
 
