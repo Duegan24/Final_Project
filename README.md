@@ -97,7 +97,21 @@ The primary method project communication is through a Slack group direct message
 ### Presentation Slides
 The presentation that outlines the steps performed in this project is available on Google Slides and can be found by clicking on the below link:
 
-[Final Project Presentation](https://docs.google.com/presentation/d/1bXmhqu5OPAXBdvMHO7NC--qenqy4zSeBRWaiZxK17_A/edit?usp=sharing)
+[Final Project Presentation](https://docs.google.com/presentation/d/1HSP1glrp1soaLvSLndOQSudrSzysDYgPzm5htyLGAaI/edit#slide=id.p)
+
+### Dashboard
+
+<img align="center" src="data_charts_tables/dashboard.gif" title="Flight Delay Dashboard">
+  
+[Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
+
+### Database
+
+<img align="center" src="Database/database.erd.png" title="Dashboard Database ERD">
+
+[Database Create SQL](Database/database.create.sql)
+
+[Database Dashboard Select SQL](Database/database.selects.sql)
 
 ### References
 
