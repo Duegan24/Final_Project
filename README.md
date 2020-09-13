@@ -99,6 +99,13 @@ The presentation that outlines the steps performed in this project is available 
 
 [Final Project Presentation](https://docs.google.com/presentation/d/1HSP1glrp1soaLvSLndOQSudrSzysDYgPzm5htyLGAaI/edit#slide=id.p)
 
+## Dashboard
+
+  <img align="center" src="https://github.com/Duegan24/Final_Project/blob/deans_branch/data_charts_tables/dashboard.gif" title="Flight Delay Dashboard">
+  
+  [Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
+
+
 ### References
 
 [[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*
