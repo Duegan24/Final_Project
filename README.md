@@ -107,7 +107,7 @@ The presentation that outlines the steps performed in this project is available 
 
 ### Dashboard Database
 
-<img align="center" src="Database/dashboard.gif" title="Dashboard Database ERD">
+<img align="center" src="Database/database.erd.png" title="Dashboard Database ERD">
 
 [Database Create SQL](Database/database.create.sql)
 
