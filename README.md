@@ -97,7 +97,7 @@ The primary method project communication is through a Slack group direct message
 ### Presentation Slides
 The presentation that outlines the steps performed in this project is available on Google Slides and can be found by clicking on the below link:
 
-[Final Project Presentation](https://docs.google.com/presentation/d/1bXmhqu5OPAXBdvMHO7NC--qenqy4zSeBRWaiZxK17_A/edit?usp=sharing)
+[Final Project Presentation](https://docs.google.com/presentation/d/1HSP1glrp1soaLvSLndOQSudrSzysDYgPzm5htyLGAaI/edit#slide=id.p)
 
 ### References
 
