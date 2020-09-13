@@ -126,6 +126,10 @@ The data source layer component receives flight or weather data requests from an
     </thead>
     <tbody>
         <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td>Presentation</td>
             <td>Dashboard/templates/FlightDelayPredictor.html</td>
         </tr>
