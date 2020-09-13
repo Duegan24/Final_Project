@@ -105,7 +105,8 @@ The presentation that outlines the steps performed in this project is available 
   
 [Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
 
-### Dashboard Database
+
+### Database
 
 <img align="center" src="Database/database.erd.png" title="Dashboard Database ERD">
 
