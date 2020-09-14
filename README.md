@@ -194,11 +194,15 @@ The data source layer component receives flight or weather data requests from a 
         </tr>
         <tr>
             <td>Data Source</td>
-            <td>Dashboard/FlightDelayPredictorDS.py</td>
+            <td>Dashboard/DatabaseDataSource.py</td>
         </tr>
         <tr>
             <td></td>
             <td>Dashboard/AirportWeatherDS.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/FlightDelayPredictorDS.py</td>
         </tr>
     </tbody>
 </table>
