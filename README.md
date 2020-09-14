@@ -301,7 +301,7 @@ class DatabaseDataSource:
         # create SQLAlcheme engine
         self.engine = create_engine(url)
 
-fully qualified connect string postgresql://USER:PASSWORD@flightsdata.cxtoxxxge4vx.us-east-2.rds.amazonaws.com:5432/flightsdata
+fully qualified connect string postgresql://USER:PASSWORD@flightsdata.XXXXXXX.us-XXXXX-XXX.rds.amazonaws.com:5432/flightsdata
 
 ```
 ### References
