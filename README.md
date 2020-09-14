@@ -92,11 +92,11 @@ The flight data files contains departure and arrival airport code fields. These 
 |flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
 |**Exploratory Data**|||
 |eploratory_testing.ipynb Jupyter Notebook
-  Percentage of delay per airline
-  Percentage of delay per aiport
-  Percentage of delay per departure time block
-  Percentage of delay per flight distance
-  Percentage of delay per weekday
+|Percentage of delay per airline|Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per airline|
+|Percentage of delay per aiport|Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per airport|
+|Percentage of delay per departure time block|Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per time block|
+|Percentage of delay per flight distance|Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per distance|
+|Percentage of delay per weekday|Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per weekday|
   
 ### Presentation Slides
 The presentation that outlines the steps performed in this project is available on Google Slides and can be found by clicking on the below link:
