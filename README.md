@@ -84,12 +84,6 @@ The flight data files contains departure and arrival airport code fields. These 
 |airport_codes_city.csv|Flight_data_files|cleaned airport code airport city/name data file|
 |**Aircraft Type Data File**|||
 |ReleasableAircraft.zip|Flight_data_files|zipped file containing aircraft identification number and aircraft type|
-|**Machine Learning Model File**|||
-|Seg_one_model .ipynb|root|Jupyter notebook contining the machine leaning model implementation code|
-|**Readme Graphics Files**|||
-|flight_delayed_canceled_table.png|data_charts_table|readme data table containing flight on-time, delayed, and canceled statistics|
-|flight_delay_percent_plot.png|data_charts_table|readme bar chart of % flight delays 2011-19|
-|flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
 |**Exploratory Data**|||
 |eploratory_testing.ipynb Jupyter Notebook
 |Percentage of delay per airline|exploratoy_testing Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per airline|
@@ -97,7 +91,13 @@ The flight data files contains departure and arrival airport code fields. These 
 |Percentage of delay per departure time block|exploratoy_testing Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per time block|
 |Percentage of delay per flight distance|exploratoy_testing Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per distance|
 |Percentage of delay per weekday|exploratoy_testing Jupyter Notebook|bar graph containing delays and not delayed flight information and percentage of delay per weekday|
-  
+|**Machine Learning Model File**|||
+|Seg_one_model .ipynb|root|Jupyter notebook contining the machine leaning model implementation code|
+|**Readme Graphics Files**|||
+|flight_delayed_canceled_table.png|data_charts_table|readme data table containing flight on-time, delayed, and canceled statistics|
+|flight_delay_percent_plot.png|data_charts_table|readme bar chart of % flight delays 2011-19|
+|flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
+
 ### Presentation Slides
 The presentation that outlines the steps performed in this project is available on Google Slides and can be found by clicking on the below link:
 
