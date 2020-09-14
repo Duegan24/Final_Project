@@ -212,6 +212,67 @@ The data source layer component receives flight or weather data requests from a 
 
 [Database Dashboard Select SQL](Database/database.selects.sql)
 
+This query get the list of states of all the airport in the system
+```
+SELECT DISTINCT state 
+FROM   airports
+ORDER BY state
+```
+
+This query gets all the airports for the specified origin state
+```
+SELECT city, code 
+FROM   airports 
+WHERE  state = '{origin_state}'
+```
+
+This query gets all the states that can be be flown 
+to from the specified origin airport
+```
+SELECT 	DISTINCT b.state
+FROM    airports_routes a
+INNER JOIN
+        airports b
+ON      a.dest_code = b.code
+WHERE 	a.origin_code = '{origin_airport_code}'
+ORDER BY b.state
+```
+
+This query gets all the airports in the specified destination 
+state that can be flown to from the specified origin airport
+```
+SELECT DISTINCT b.city, b.code 
+FROM   airports_routes a 
+INNER JOIN 
+       airports b 
+ON     a.dest_code = b.code 
+WHERE  a.origin_code = '{origin_airport_code}' 
+AND    b.state = '{dest_state}' 
+ORDER BY b.city
+```
+
+This query gets the name of the airlines that fly from the
+specified origin airport to the specified destination airport
+```
+SELECT DISTINCT a.op_carrier_name, a.op_unique_carrier 
+FROM   airlines a 
+INNER JOIN 
+       airline_routes b 
+ON     a.op_carrier_airline_id = b.op_carrier_airline_id 
+WHERE  b.origin_code = '{origin_airport_code}' 
+AND    b.dest_code = '{dest_airport_code}' 
+ORDER BY op_carrier_name
+```
+
+This query gets the hourly weather for a specified airport and date
+```
+SELECT cloudcover, precipitation, windspeed, humidity, visibility
+FROM   airport_weather
+WHERE  code = '{airport_code}'
+AND    date = '{date}'
+ORDER BY HOUR
+```
+
 ### References
 
 [[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*
