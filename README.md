@@ -116,6 +116,41 @@ The logic layer components receive requests from presentation layer for either f
 
 The data source layer component receives flight or weather data requests from a logic level component, retrieves requested information from the data source, and returns data to the calling logic level component.
 
+### Machine Learning Model
+
+The dashboard machine learning model is contained in the Python file Dashboard/FlightDelayPredictorModel.py
+The data to populate the model is stored in the folowing files
+
+<table>
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Model Component</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dashboard/pickel_files/Origin_encoder.pkl</td>
+            <td>origin encoder</td>
+        </tr>
+        <tr>
+            <td>Dashboard/pickel_files/Dest_encoder.pkl</td>
+            <td>destination encoder</td>
+        </tr>
+        <tr>
+            <td>Dashboard/pickel_files/scaler.pkl</td>
+            <td>feature scaler</td>
+        </tr>
+        <tr>
+            <td>Dashboard/pickel_files/model_dt.pkl</td>
+            <td>model initializer</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+### Web Application Layer Components
 <table>
     <thead>
         <tr>
