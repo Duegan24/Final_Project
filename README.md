@@ -90,7 +90,14 @@ The flight data files contains departure and arrival airport code fields. These 
 |flight_delayed_canceled_table.png|data_charts_table|readme data table containing flight on-time, delayed, and canceled statistics|
 |flight_delay_percent_plot.png|data_charts_table|readme bar chart of % flight delays 2011-19|
 |flight_canceled_percent_plot.png|data_charts_table|readme bar char of % flight canceled 2011-2019|
-
+|**Exploratory Data**|||
+|eploratory_testing.ipynb Jupyter Notebook
+  Percentage of delay per airline
+  Percentage of delay per aiport
+  Percentage of delay per departure time block
+  Percentage of delay per flight distance
+  Percentage of delay per weekday
+  
 ### Presentation Slides
 The presentation that outlines the steps performed in this project is available on Google Slides and can be found by clicking on the below link:
 
@@ -115,6 +122,18 @@ Presentation layer components respond to user input from the dashboard and reque
 The logic layer components receive requests from presentation layer for either flight selection information or flight delay prediction information. Flight selection information request are processed by calling the data source layer to get the requested data. Flight delay prediction information requests are processed by inputting the delay prediction parameters from the dashboard into the machine learning model and returning the delay prediction data to the dashboard presentation layer. 
 
 The data source layer component receives flight or weather data requests from a logic level component, retrieves requested information from the data source, and returns data to the calling logic level component.
+
+#### Exploratory Data
+
+The exploratory data is contained in the Jupyter Notebook called exploratory_testing. 
+
+Pyplot in Matplotlib was used to get visuals on 
+
+  - Percentage of delay per airline
+  - Percentage of delay per aiport
+  - Percentage of delay per departure time block
+  - Percentage of delay per flight distance
+  - Percentage of delay per weekday
 
 #### Machine Learning Model
 
