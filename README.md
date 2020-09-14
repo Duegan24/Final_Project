@@ -277,6 +277,33 @@ AND    date = '{date}'
 ORDER BY HOUR
 ```
 
+```
+From Python file Dashboard/DatabaseDataSource.py
+
+
+from  sqlalchemy import create_engine
+
+class DatabaseDataSource:
+
+    def __init__(self, databaseConfig):
+
+        # Get database configuration parameters
+        user          = databaseConfig["user"]
+        password      = databaseConfig["password"]
+        host          = databaseConfig["host"]
+        port          = databaseConfig["port"]
+        database      = databaseConfig["database"]
+        database_type = databaseConfig["database_type"]
+
+        # Generate database connection url
+        url = "{}://{}:{}@{}:{}/{}".format(database_type, user, password, host, port, database)
+
+        # create SQLAlcheme engine
+        self.engine = create_engine(url)
+
+fully qualified connect string postgresql://USER:PASSWORD@flightsdata.cxtoxxxge4vx.us-east-2.rds.amazonaws.com:5432/flightsdata
+
+```
 ### References
 
 [[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*
