@@ -65,9 +65,6 @@ The project is also planning to incorporate in the model weather data at the dep
 
 The flight data files contains departure and arrival airport code fields. These fields contain the three letter FAA airport code, such as ORD for Chicago O'Hare airport. An additional file is included in the project data files that contains the city or name of the airport associate with the three letter airport code. 
 
-### Communication Protocol
-
-The primary method project communication is through a Slack group direct message channel. All project team member have the Slack application on our phones so that messages between a team member and the project team will be received in a timely manner. If the need for more involved group collaboration arises, a Zoom session will be initiated by one of the project team member which will be joined by the remaining team members.
 
 ### Project Deliverable Description
 
@@ -105,6 +102,147 @@ The presentation that outlines the steps performed in this project is available 
   
 [Dashboad on AWS](http://flight-delay-predict-env.eba-2u2jw4ht.us-east-2.elasticbeanstalk.com)
 
+#### Technical Design
+
+The dashboard is a single page web application. The dashboard user interface uses JavaScript d2.json() requests to request and receive flight selection and flight delay prediction information from the webserver. The webserver used the Flask web application framework. The dashboard web application has three layers of components
+
+* Presentation Layer Components
+* Logic Layer Components
+* Data Source Layer Components
+
+Presentation layer components respond to user input from the dashboard and request data from the flight delay prediction system. The presentation layer components either make data requests for flight selection data such as origin state airports or requests flight delay prediction data from the machine learning model. 
+
+The logic layer components receive requests from presentation layer for either flight selection information or flight delay prediction information. Flight selection information request are processed by calling the data source layer to get the requested data. Flight delay prediction information requests are processed by inputting the delay prediction parameters from the dashboard into the machine learning model and returning the delay prediction data to the dashboard presentation layer. 
+
+The data source layer component receives flight or weather data requests from a logic level component, retrieves requested information from the data source, and returns data to the calling logic level component.
+
+#### Machine Learning Model
+
+The dashboard machine learning model is contained in the Python file Dashboard/FlightDelayPredictorModel.py
+The data to populate the model is stored in the folowing files
+
+<table>
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Model Component</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dashboard/pickel_files/Origin_encoder.pkl</td>
+            <td>origin encoder</td>
+        </tr>
+        <tr>
+            <td>Dashboard/pickel_files/Dest_encoder.pkl</td>
+            <td>destination encoder</td>
+        </tr>
+        <tr>
+            <td>Dashboard/pickel_files/scaler.pkl</td>
+            <td>feature scaler</td>
+        </tr>
+        <tr>
+            <td>Dashboard/pickel_files/model_dt.pkl</td>
+            <td>model initializer</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+#### Web Application Layer Components
+
+<table>
+    <thead>
+        <tr>
+            <th>Layer</th>
+            <th>Component Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Presentation</td>
+            <td>Dashboard/templates/FlightDelayPredictor.html</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/static/js/FlightDelayPredictor.js</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/static/js/FlightDataDisplay.js</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/static/css/FlightDelayPredictor.css</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/application.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/application_config.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/DatabaseConfig.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Logic</td>
+            <td>Dashboard/FlightDelayPredictor.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/FlightDelayPredictorModel.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/Dest_encoder.pkl</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/Origin_encoder.pkl</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/model_dt.pkl</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/pickle_files/scaler.pkl</td>
+        </tr>        
+        <tr>
+            <td></td>
+            <td>Dashboard/AirportWeather.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Data Source</td>
+            <td>Dashboard/DatabaseDataSource.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/AirportWeatherDS.py</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dashboard/FlightDelayPredictorDS.py</td>
+        </tr>
+    </tbody>
+</table>
+    
 
 ### Database
 
@@ -114,6 +252,94 @@ The presentation that outlines the steps performed in this project is available 
 
 [Database Dashboard Select SQL](Database/database.selects.sql)
 
+This query get the list of states of all the airport in the system
+```
+SELECT DISTINCT state 
+FROM   airports
+ORDER BY state
+```
+
+This query gets all the airports for the specified origin state
+```
+SELECT city, code 
+FROM   airports 
+WHERE  state = '{origin_state}'
+```
+
+This query gets all the states that can be be flown 
+to from the specified origin airport
+```
+SELECT 	DISTINCT b.state
+FROM    airports_routes a
+INNER JOIN
+        airports b
+ON      a.dest_code = b.code
+WHERE 	a.origin_code = '{origin_airport_code}'
+ORDER BY b.state
+```
+
+This query gets all the airports in the specified destination 
+state that can be flown to from the specified origin airport
+```
+SELECT DISTINCT b.city, b.code 
+FROM   airports_routes a 
+INNER JOIN 
+       airports b 
+ON     a.dest_code = b.code 
+WHERE  a.origin_code = '{origin_airport_code}' 
+AND    b.state = '{dest_state}' 
+ORDER BY b.city
+```
+
+This query gets the name of the airlines that fly from the
+specified origin airport to the specified destination airport
+```
+SELECT DISTINCT a.op_carrier_name, a.op_unique_carrier 
+FROM   airlines a 
+INNER JOIN 
+       airline_routes b 
+ON     a.op_carrier_airline_id = b.op_carrier_airline_id 
+WHERE  b.origin_code = '{origin_airport_code}' 
+AND    b.dest_code = '{dest_airport_code}' 
+ORDER BY op_carrier_name
+```
+
+This query gets the hourly weather for a specified airport and date
+```
+SELECT cloudcover, precipitation, windspeed, humidity, visibility
+FROM   airport_weather
+WHERE  code = '{airport_code}'
+AND    date = '{date}'
+ORDER BY HOUR
+```
+
+```
+From Python file Dashboard/DatabaseDataSource.py
+
+
+from  sqlalchemy import create_engine
+
+class DatabaseDataSource:
+
+    def __init__(self, databaseConfig):
+
+        # Get database configuration parameters
+        user          = databaseConfig["user"]
+        password      = databaseConfig["password"]
+        host          = databaseConfig["host"]
+        port          = databaseConfig["port"]
+        database      = databaseConfig["database"]
+        database_type = databaseConfig["database_type"]
+
+        # Generate database connection url
+        url = "{}://{}:{}@{}:{}/{}".format(database_type, user, password, host, port, database)
+
+        # create SQLAlcheme engine
+        self.engine = create_engine(url)
+
+fully qualified connect string postgresql://USER:PASSWORD@flightsdata.XXXXXXX.us-XXXXX-XXX.rds.amazonaws.com:5432/flightsdata
+
+```
 ### References
 
 [[1]](https://www.inc.com/david-brown/why-travel-is-essential-to-running-a-successful-business.html) Why Travel Is Essential to Running a Successful BusinessFace-to-face interactions can never be replaced, *Inc., David Brown Oct 4, 2017*
